@@ -1,0 +1,10 @@
+//- Короткая всплывающая подсказка(информация, ошибка или предупреждение), например "Письмо отправлено"
+mixin notify-popup(id) 
+    - var idNotify = id ? id : cl
+    .notify-popup(id=idNotify)&attributes(attributes)
+        a.notify-popup__close
+            svg.notify-popup__close-icon
+                use(xlink:href="./assets/files/sprite.svg#close")
+        .notify-popup__content
+            if block
+                block

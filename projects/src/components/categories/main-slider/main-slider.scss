@@ -1,0 +1,44 @@
+.main-slider {
+    overflow-x: hidden;
+    &--list {
+        @include ind-m(10px, (l r), 2, '-');
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__slider {
+        @include ind-m(10px, (l r), 2, '-');
+        display: flex;
+    }
+    &__pagination {
+        display: flex;
+        justify-content: center;
+    }
+    &__navigation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__item {
+        @include ind-p(10px, (), 2);
+        display: flex;
+        width: 25%;
+        &.swiper-slide {
+            height: auto;
+        }
+    }
+}
+
+.main-slider-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    // &__top {
+    // }
+    // &__bottom {
+    // }
+    // &__image {
+    // }
+    // &__name {
+    // }
+}

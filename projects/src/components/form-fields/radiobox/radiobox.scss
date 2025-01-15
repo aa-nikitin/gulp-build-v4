@@ -1,0 +1,84 @@
+// -- options --
+
+.radiobox {
+    display: block;
+    line-height: 1.5;
+
+    &__input {
+        display: none;
+    }
+
+    // для svg
+    // &__icon {
+    //     @include centered();
+    //     fill: transparent;
+    //     stroke: $cl-main;
+    //     opacity: 0;
+    //     width: $w-icon;
+    //     height: $h-icon;
+    //     transition-property: opacity;
+    //     transition-duration: 0.5s;
+    // }
+
+    // для css(круг)
+    &__icon {
+        @include centered();
+        display: block;
+        opacity: 0;
+        width: 8px;
+        height: 8px;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        background-color: $cl-main;
+        border-radius: 100%;
+    }
+
+    &__box {
+        display: block;
+        position: absolute;
+        background: rgba($color: $cl-black, $alpha: 0.2);
+        width: 18px;
+        height: 18px;
+        left: 0px;
+        top: -1px;
+        border-radius: 100%;
+    }
+
+    &__input:checked + &__box {
+        & .icon {
+            opacity: 1;
+        }
+    }
+
+    &__label {
+        cursor: pointer;
+        position: relative;
+        padding-left: 30px;
+        z-index: 2;
+    }
+
+    &__text {
+        & a {
+            color: rgba($color: $cl-main, $alpha: 0.6);
+            transition-property: color;
+            transition-duration: 0.5s;
+            &:hover {
+                color: rgba($color: $cl-main, $alpha: 1);
+            }
+        }
+    }
+
+    // оформление поля если не заполнено(error)
+    @extend .field-container--error-block;
+
+    @include xl() {
+    }
+    @include lg() {
+    }
+    @include md() {
+    }
+    @include sm() {
+    }
+    @include xs() {
+    }
+}

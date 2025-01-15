@@ -1,0 +1,14 @@
+mixin text-field(i)
+    - var id = i.id ? i.id : ''
+    - var className = 'text-field'
+    div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
+        input(
+            id = `${id}`
+            class = `${className}__input ${i.fieldName}` + (i.cl ? ` ${i.cl}` : '') 
+            type = 'text' 
+            name = `${i.name}`
+            placeholder = `${i.caption}` 
+            value = '' + (i.value ? `${i.value}` : '' )
+            data-checks = `` + (i.checks ? i.checks : '')
+            data-type = `text-field`
+        )

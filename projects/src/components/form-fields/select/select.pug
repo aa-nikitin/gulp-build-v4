@@ -1,0 +1,23 @@
+mixin select(i)
+    - var id = i.id ? i.id : ''
+    - var className = 'select'
+    div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
+        div(class=`${className}__field`) 
+            input(
+                id = `${id}`
+                class = `${className}__input ${i.fieldName}` + (i.cl ? ` ${i.cl}` : '') 
+                type = 'text' 
+                name = `${i.name}`
+                placeholder = `${i.caption}`
+                value = '' + (i.value ? `${i.value}` : '' )
+                data-checks = `` + (i.checks ? i.checks : '')
+                data-type = `select`
+                readonly
+            )
+            div(class=`${className}__icon-wrap`) 
+                svg.icon(class=`${className}__icon`) 
+                    use(xlink:href="./assets/files/sprite.svg#arrow-select")
+
+        div(class=`${className}__list`)
+            each itemList, keyList in i.list 
+                a(class=`${className}__list-item` data-value=`` + (itemList.value ? itemList.value : itemList.name)) !{itemList.name}

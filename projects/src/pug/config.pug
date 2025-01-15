@@ -1,0 +1,32 @@
+-
+    var config = {
+        modx:                   false, //- замена номеров и адресов на чанки и переменные MODX
+        yandexMapApi:           false, //- подключение яндекс карты API
+        outsideLibsCss:         true, //- подключение сторонних библиотек из CSS файлов, должны находится в папке libs, в конфиге сборки(config.js) параметр isCssLibs должен стоять в true
+        outsideLibsJs:          true, //- подключение сторонних библиотек из JS файлов, должны находится в папке libs, в конфиге сборки(config.js) параметр isJsLibs должен стоять в true  
+        hbsLibs:                false, //- подключение hbs файлов, параметр isHbs должен стоять в true 
+        spriteStyles:           false, //- подключение стилей для спрайтов
+    }
+    
+    var files = './assets/files';
+    var image = 'no-photo.jpg';
+
+    //- параметры сайта
+    //- параметры передаются в массиве, первый параметр основное значение, второе для modx
+    //- если второй параметр не задан используется первый
+
+    var contacts = {
+        phone: ['+7 (999) 99-99-99', '[[+phone]]'],
+        tel: ['7999999999', '[[convertNumber? &str=`[[++phone]]`]]'],
+        address: ['тут будет адрес', '[[++address]]'],
+        email: ['info@info.ru', '[[++email]]'],
+        copyright: ['© 2025. Все права защищены.', '[[++copyright]]'],
+        counter: [`<img src="${files}/counter.png" alt="" />`, '[[++counter]]'],
+        policy: [`data-fancybox="" data-src="#policy"`, '[[$policy]]'],
+        siteName: ['ЯСИМ'],
+        siteLink: ['http://yasim.ru/']
+    } 
+
+    
+    
+    

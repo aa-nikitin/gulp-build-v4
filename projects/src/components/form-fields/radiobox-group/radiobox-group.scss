@@ -1,0 +1,8 @@
+.radiobox-group {
+    &__item {
+        @include ind-m(10px, (b));
+    }
+    
+    // оформление поля если не заполнено(error)
+    @extend .field-container--error-block;
+}

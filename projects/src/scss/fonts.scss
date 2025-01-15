@@ -1,0 +1,30 @@
+//@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700|Roboto+Slab:400,700&subset=cyrillic');
+
+// вставить в начале файла
+// $fontPath: '/assets/fonts/папка_шрифта/';
+// заменить
+// url(        НА       url($fontPath+
+
+// -- FontAwesome --
+
+// @mixin FontAwesome() {
+//     font-family: 'FontAwesome';
+// }
+
+// -- mainFont --
+$mainFont: 'PT Sans';
+@mixin mainFont() {
+    font-family: $mainFont, sans-serif;
+}
+
+// -- secondFont --
+// $secondFont: 'Open Sans';
+// @mixin secondFont() {
+//     font-family: $secondFont, serif;
+// }
+
+// -- Flaticon --
+
+// @mixin FontIcon() {
+//     font-family: 'FontAwesome';
+// }

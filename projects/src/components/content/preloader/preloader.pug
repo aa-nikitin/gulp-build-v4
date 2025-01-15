@@ -1,0 +1,6 @@
+mixin preloader()
+    .preloader(id="preloader")
+        - var i = 0;
+        .sk-circle-bounce
+            while i < 12
+                div(class=`sk-child sk-circle-${++i}`)

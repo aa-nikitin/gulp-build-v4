@@ -1,0 +1,32 @@
+.gallery {
+    overflow-x: hidden;
+    &--list {
+        @include ind-m(10px, (l r), 2, '-');
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__slider {
+        @include ind-m(10px, (l r), 2, '-');
+        display: flex;
+    }
+    &__pagination {
+        display: flex;
+        justify-content: center;
+    }
+    &__navigation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__item {
+        @include ind-p(10px, (), 2);
+        width: 25%;
+    }
+}
+
+// .catalog-item {
+//     &__image {
+//     }
+//     &__img {
+//     }
+// }

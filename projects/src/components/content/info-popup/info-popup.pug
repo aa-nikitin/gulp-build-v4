@@ -1,0 +1,7 @@
+//- Подробная информация во всплывающем окне, например "политика конфеденциальности"
+mixin info-popup(cl, id)
+    - var idPopUp = id ? id : cl
+    div.container(class=`${cl}` id=`${idPopUp}`)&attributes(attributes)
+        div(class=`${cl}__wrap content`)
+            if block
+                block

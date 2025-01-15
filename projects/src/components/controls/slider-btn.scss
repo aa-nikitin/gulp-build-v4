@@ -1,0 +1,28 @@
+.slider-btn {
+    cursor: pointer;
+    opacity: 0.8;
+    border: solid 1px $cl-black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: 2px;
+    // &--prev {
+    // }
+    &--next {
+        & .slider-btn {
+            &__icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    &__icon {
+        width: $w-icon;
+        height: $h-icon;
+    }
+    &:hover {
+        opacity: 1;
+    }
+}

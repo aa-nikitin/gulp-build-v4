@@ -1,0 +1,23 @@
+mixin cat-list-handle(name, obj, params = {}, paramsItem = {})
+    - var commonClassItem = params.commonClassItem ? params.commonClassItem : '' //- общий доп. класс для item задеается в параметрах в объекте с ключем commonClassItem(3-й параметр)
+    each item, key in obj.items
+        - var personalClassItem = item.personalClassItem ? ` ${item.personalClassItem}` : '' //- доп. класс(item.personalClassItem) на каждый item задеается в основном массиве эелементов
+        if (obj.className !== obj.classItem) 
+            div(class=`${obj.className}__item ${commonClassItem} ${personalClassItem}`)
+                +#{name}(obj.classItem, item, paramsItem , key)
+        else 
+            +#{name}(obj.classItem, item, paramsItem, key)
+    if (block)
+        block
+
+mixin cat-list(name, obj, params = {}, paramsItem = {})
+    //- hideMainDiv - если данный параметр в true то выводим только список, не оборачивая в div
+    if (params.hideMainDiv) 
+        +cat-list-handle(name, obj, params, paramsItem) 
+            block
+    else
+        div(class=`${obj.className}`)&attributes(attributes)
+            +cat-list-handle(name, obj, params, paramsItem)
+                block
+            
+                

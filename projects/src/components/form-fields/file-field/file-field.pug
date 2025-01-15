@@ -1,0 +1,22 @@
+mixin file-field(i)
+    - var id = i.id ? i.id : ''
+    - var className = 'file-field'
+    div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
+        input(
+            id = `${id}`
+            class = `${className}__input ${i.fieldName}` 
+            type = 'file' 
+            name = `${i.name}`
+            placeholder = `${i.caption}` 
+            data-checks = `` + (i.checks ? i.checks : '')
+            data-type = `file-field`
+            multiple = i.multiple ? i.multiple : false
+        )
+        label(class=`${className}__input-label` for=`${id}` data-value=`${i.caption}`) 
+        div(class=`${className}__icons`)
+            label(class=`${className}__upload` for=`${id}`) 
+                svg(class=`${className}__icons-upload`)
+                    use(xlink:href="./assets/files/sprite.svg#upload")
+            span(class=`${className}__remove`) 
+                svg(class=`${className}__icons-remove`)
+                    use(xlink:href="./assets/files/sprite.svg#close")

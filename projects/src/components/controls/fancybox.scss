@@ -1,0 +1,5 @@
+.fancybox__container {
+    & .is-close-btn:focus-visible {
+        box-shadow: none !important;
+    }
+}

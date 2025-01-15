@@ -1,0 +1,21 @@
+-
+    var gallery = { className: 'gallery', classItem: 'gallery-item', items: [
+        {image: '', name: 'img-1'},
+        {image: '', name: 'img-2'},
+        {image: '', name: 'img-3'},
+        {image: '', name: 'img-4'},
+        {image: '', name: 'img-5'},
+        {image: '', name: 'img-6'},
+        {image: '', name: 'img-5'},
+        {image: '', name: 'img-6'}
+    ]}
+
+mixin gallery(cl, i, params, key) 
+    -
+        var img = `${files}/${i.image ? i.image : image}`
+        var fancybox = `${params.fancybox ? params.fancybox : cl}` // уникальное значение fancybox для галлереи, если не задан берется из имени класса
+    div(class = `${cl}`)
+        a(class = `${cl}__image` href = `${img}` data-fancybox = `${fancybox}` data-caption = `${i.name}`)
+            img(class = `${cl}__img` src = `${img}`, alt = `${i.name}`)
+
+

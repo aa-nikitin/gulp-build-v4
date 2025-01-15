@@ -1,0 +1,15 @@
+.info-popup {
+    display: none;
+    // position: absolute;
+    // right: 0px;
+    // top: 0px;
+    // bottom: 0px;
+    flex-direction: column;
+    width: 100%;
+    &__wrap {
+        @include ind-p(20px, (l r));
+        @include ind-p(20px, (t b));
+    }
+    // &__head {
+    // }
+}

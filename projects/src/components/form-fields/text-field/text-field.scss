@@ -1,0 +1,33 @@
+.text-field {
+    &__input {
+        @include mainFont();
+        @include ind-p(12px, (t b));
+        padding-left: 0px;
+        @extend .fs-text;
+        display: block;
+        width: 100%;
+        outline: none;
+        border-color: transparent;
+        border-bottom: solid 1px rgba($color: $cl-black, $alpha: 0.2);
+        transition-property: border;
+        transition-duration: 0.5s;
+        &:focus {
+            border-bottom-color: rgba($color: $cl-black, $alpha: 0.5);
+        }
+        &:autofill {
+            background-color: transparent;
+            color: $cl-white;
+        }
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: $cl-black;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    }
+    // оформление поля если не заполнено(error)
+    @extend .field-container--error;
+}
+@include placeholder('text-field__input', $cl-black);

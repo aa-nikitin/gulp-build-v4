@@ -1,0 +1,17 @@
+extends ../app
+
+block variables
+    - 
+        title = 'Каталог'
+
+block content
+
+    section.sections__standart.sections__standart--margin
+        .container 
+            .content-title.content-title--h1 Каталог
+            +cat-list('catalog', catalog)(class="catalog--list")
+            
+
+    section.sections__standart.sections__standart--margin
+        .container 
+            +cat-list('gallery', gallery)(class="gallery--list")

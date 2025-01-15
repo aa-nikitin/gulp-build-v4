@@ -1,0 +1,18 @@
+.button {
+    @include ind-p(25px, (l r));
+    @include ind-p(10px, (t b));
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: $cl-white;
+    background: $cl-main;
+    border: solid 1px $cl-main;
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+
+    &:hover {
+        color: $cl-main;
+        background-color: transparent;
+    }
+}

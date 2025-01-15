@@ -1,0 +1,51 @@
+mixin form-popup(i) 
+    - var idForm = i.id ? `${i.id}` : `${i.cl}` //- id не обязательный параметр, если не указан подставляется имя класса как id
+    div(class = `${i.cl}` id=`${idForm}`)&attributes(attributes)
+
+        div(class = `${i.cl}__field`)
+            +text-field({
+                id: `${idForm}-name`,
+                name: 'name',
+                caption: 'Имя',
+                checks: 'require',
+                fieldName: 'ffield'
+            })
+
+        div(class = `${i.cl}__field`)
+            +text-field({
+                id: `${idForm}-phone`,
+                name: 'phone',
+                caption: 'Телефон',
+                checks: 'require, phone',
+                fieldName: 'ffield'
+            })
+
+        div(class = `${i.cl}__field`)
+            +text-field({
+                id: `${idForm}-email`,
+                name: 'email',
+                caption: 'E-mail',
+                checks: 'require, email',
+                fieldName: 'ffield'
+            })
+
+        div(class = `${i.cl}__field`)
+            +textarea({
+                id: `${idForm}-message`,
+                name: 'message',
+                caption: 'Сообщение',
+                fieldName: 'ffield'
+            })
+
+        div(class = `${i.cl}__field`)
+            +checkbox({
+                id: `${idForm}-policy`,
+                name: 'policy',
+                caption: `Я прочитал и согласен с правилами <a ${modx('policy')}>Политики конфиденциальности</a>`,
+                checked: true,
+                value: 'policy',
+                fieldName: 'ffield',
+                checks: 'require'
+            })
+
+        a.button(id=`${idForm}-send`) Отправить

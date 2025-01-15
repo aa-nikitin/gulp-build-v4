@@ -1,0 +1,22 @@
+.ul {
+    @include ind-m(20px, (t b));
+    line-height: 1.5;
+    & li {
+        // @include list(7px, 25px, 'shape');
+        @include ind-m(5px, (t b));
+
+        position: relative;
+        @include ind-p(20px, (l));
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 100%;
+            background: $cl-black;
+            left: 0px;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+        }
+    }
+}

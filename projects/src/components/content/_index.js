@@ -1,0 +1,1 @@
+import './notify-popup/notify-popup';

@@ -1,0 +1,40 @@
+.notify-popup {
+    @include ind-p(20px);
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: $cl-main;
+    color: $cl-white;
+    width: 300px;
+    opacity: 0;
+    pointer-events: none;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    z-index: 99999;
+    &.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    &__close {
+        display: block;
+        position: absolute;
+        bottom: 100%;
+        left: 100%;
+        cursor: pointer;
+        opacity: 0.6;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        &-icon {
+            fill: $cl-black;
+            width: $w-icon;
+            height: $h-icon;
+            display: block;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &__content {
+        text-align: center;
+    }
+}

@@ -1,0 +1,101 @@
+mixin form-page(i) 
+    - var idForm = i.id ? `${i.id}` : `${i.cl}` //- id не обязательный параметр, если не указан подставляется имя класса как id
+    div(class = `${i.cl}` id=`${idForm}`)&attributes(attributes)
+
+        div(class = `${i.cl}__field`)
+            +text-field({
+                id: `${idForm}-name`,
+                name: 'name',
+                caption: 'Имя',
+                checks: 'require',
+                fieldName: 'ffield'
+            })
+
+        div(class = `${i.cl}__field`)
+            +text-field({
+                id: `${idForm}-phone`,
+                name: 'phone',
+                caption: 'Телефон',
+                checks: 'require, phone',
+                fieldName: 'ffield'
+            })
+
+        div(class = `${i.cl}__field`)
+            +text-field({
+                id: `${idForm}-email`,
+                name: 'email',
+                caption: 'E-mail',
+                checks: 'require, email',
+                fieldName: 'ffield'
+            })
+
+        div(class = `${i.cl}__field`)
+            +textarea({
+                id: `${idForm}-message`,
+                name: 'message',
+                caption: 'Сообщение',
+                fieldName: 'ffield'
+            })
+
+        div(class = `${i.cl}__field`)
+            +select({
+                id: `${idForm}-select`,
+                name: 'select',
+                caption: 'Удобное время для звонка',
+                value: 'after16',
+                list: [
+                    {name: '8:00 - 12:00'},
+                    {name: '12:00 - 16:00'},
+                    {name: 'после 16:00', value: 'after16'}
+                ],
+                fieldName: 'ffield'
+            })
+
+        div(class = `${i.cl}__field`)
+            +file-field({
+                id: `${idForm}-file`,
+                name: 'file',
+                caption: 'Выбрать файлы',
+                checks: 'file-size',
+                fieldName: 'ffield',
+                multiple: true
+            })
+
+        div(class = `${i.cl}__field`)
+            +checkbox({
+                id: `${idForm}-policy`,
+                name: 'policy',
+                caption: `Я прочитал и согласен с правилами <a ${modx('policy')}>Политики конфиденциальности</a>`,
+                checked: true,
+                value: 'policy',
+                fieldName: 'ffield',
+                checks: 'require'
+            })
+
+        div(class = `${i.cl}__field`)
+            +checkbox-group({
+                id: `${idForm}-brands`,
+                name: 'brands',
+                fieldName: 'ffield',
+                showCaption: true,
+                list: [
+                    {name: 'Фильтр 1'},
+                    {name: 'Фильтр 2'},
+                    {name: 'Фильтр 3', value: 'filter3'}
+                ]
+            })
+
+        div(class = `${i.cl}__field`)
+            +radiobox-group({
+                id: `${idForm}-brands2`,
+                name: 'brands2',
+                fieldName: 'ffield',
+                showCaption: true,
+                list: [
+                    {name: 'Фильтр2 1'},
+                    {name: 'Фильтр2 2'},
+                    {name: 'Фильтр2 3', value: 'filter3'}
+                ]
+            })
+
+        a.button(id=`${idForm}-send`) Отправить

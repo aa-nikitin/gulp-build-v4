@@ -1,0 +1,50 @@
+@mixin tpind($size, $type: 'margin', $list: (), $sign: '+') {
+    @if $size < 0 {
+        $size: 0;
+    }
+    @if $sign == '-' {
+        $size: $size * -1;
+    }
+    @if (length($list) > 0) {
+        @each $list-item in $list {
+            @if ($list-item == t) {
+                #{$type}-top: $size;
+            }
+            @if $list-item == b {
+                #{$type}-bottom: $size;
+            }
+            @if $list-item == l {
+                #{$type}-left: $size;
+            }
+            @if $list-item == r {
+                #{$type}-right: $size;
+            }
+        }
+    } @else {
+        #{$type}: $size;
+    }
+}
+
+@mixin ind($size, $type: 'margin', $list: (), $zoom: 1, $sign: '+') {
+    $diff: ceil($size / 10px * $zoom);
+
+    @include tpind($size, $type, $list, $sign);
+    @include xxl() {
+        $size-r: $size - $diff * 1.5;
+        @include tpind($size-r, $type, $list, $sign);
+    }
+    @include lg() {
+        $size-r: $size - $diff * 2;
+        @include tpind($size-r, $type, $list, $sign);
+    }
+    @include sm() {
+        $size-r: $size - $diff * 3;
+        @include tpind($size-r, $type, $list, $sign);
+    }
+}
+@mixin ind-m($size, $list: (), $zoom: 1, $sign: '+') {
+    @include ind($size, 'margin', $list, $zoom, $sign);
+}
+@mixin ind-p($size, $list: (), $zoom: 1, $sign: '+') {
+    @include ind($size, 'padding', $list, $zoom, $sign);
+}

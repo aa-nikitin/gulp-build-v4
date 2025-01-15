@@ -1,0 +1,16 @@
+extends ../app
+
+block variables
+    - 
+        title = 'Стартовая'
+        isIndex = true
+
+block content
+
+    section.sections__page.container 
+        ul
+            each item, key in pages
+                if (item.name !== 'index')
+                    li
+                        a(href=`${item.link}`) !{item.name}
+            

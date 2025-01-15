@@ -1,0 +1,11 @@
+.textarea {
+    &__input {
+        @extend .text-field__input; // должен быть компонент .text-field
+        resize: none;
+        height: 100px;
+    }
+
+    // оформление поля если не заполнено(error)
+    @extend .field-container--error;
+}
+@include placeholder('textarea__input', $cl-black);

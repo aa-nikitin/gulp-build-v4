@@ -1,0 +1,10 @@
+.checkbox-group {
+    &__item {
+        @include ind-m(10px, (b));
+        position: relative;
+        z-index: 2;
+    }
+
+    // оформление поля если не заполнено(error)
+    @extend .field-container--error-block;
+}

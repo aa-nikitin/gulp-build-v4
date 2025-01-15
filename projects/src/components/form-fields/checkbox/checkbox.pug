@@ -1,0 +1,21 @@
+mixin checkbox(i)
+    - var id = i.id ? i.id : ''
+    - var className = 'checkbox'
+    div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
+        label(class=`${className}__label`)
+            input(
+                id = `${id}`
+                class = `${className}__input ${i.fieldName}`
+                type = `checkbox` 
+                name = `${i.name}`
+                checked = i.checked
+                value = '' + (i.value ? `${i.value}` : '' )
+                data-checks = `` + (i.checks ? i.checks : '')
+                data-type = `checkbox`
+                data-caption = '' + ((i.showCaption && i.caption) ? i.caption : '')
+            )
+            span(class=`${className}__box`)
+                svg.icon(class=`${className}__icon`)
+                    use(xlink:href="./assets/files/sprite.svg#checkbox")
+            if (i.caption)
+                span(class=`${className}__text`) !{i.caption}

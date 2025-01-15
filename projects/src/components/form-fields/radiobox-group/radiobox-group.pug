@@ -1,0 +1,24 @@
+mixin radiobox-group(i)
+    - var id = i.id ? i.id : ''
+    - var className = 'radiobox-group'
+    div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
+        input(
+            id=`${id}`
+            class=`${className}__edit ${i.fieldName}`
+            type='hidden' hidden
+            name=`${i.name}`
+            value=''
+            data-checks = `` + (i.checks ? i.checks : '')
+            data-type = `radiobox-group`
+        )
+        each itemList, keyList in i.list 
+            div(class = `${className}__item`)
+                +radiobox({
+                    id: `${id}-${keyList + 1}`,
+                    name: 'radiobox-group',
+                    caption: `${itemList.name}`,
+                    checked: itemList.checked,
+                    value: '' + (itemList.value ? itemList.value : itemList.name),
+                    fieldName: '',
+                    showCaption: !!i.showCaption
+                })

@@ -1,0 +1,25 @@
+.ol {
+    @include ind-m(20px, (t b));
+
+    list-style-type: none;
+    counter-reset: num;
+    padding-left: 0px;
+    line-height: 1.5;
+    & li {
+        @include ind-m(5px, (t b));
+        @include ind-p(20px, (l));
+        position: relative;
+        // @include list(13px, 25px, 'font');
+
+        &:before {
+            display: inline-block;
+            vertical-align: middle;
+            content: counter(num) '. ';
+            counter-increment: num;
+            color: $cl-black;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    }
+}

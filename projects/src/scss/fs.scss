@@ -1,0 +1,21 @@
+.fs-text {
+    @include fs(16px);
+}
+.fs-h1 {
+    @include fs(46px);
+}
+.fs-h2 {
+    @include fs(36px);
+}
+.fs-h3 {
+    @include fs(24px);
+}
+.fs-h4 {
+    @include fs(22px);
+}
+.fs-h5 {
+    @include fs(18px);
+}
+.fs-h6 {
+    @include fs(16px);
+}

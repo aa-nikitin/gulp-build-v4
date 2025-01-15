@@ -1,0 +1,22 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include xxxl() {
+    }
+    @include xxl() {
+        max-width: 90%;
+    }
+    @include xl() {
+    }
+    @include lg() {
+    }
+    @include md() {
+    }
+    @include sm() {
+        max-width: none;
+    }
+    @include xs() {
+    }
+}

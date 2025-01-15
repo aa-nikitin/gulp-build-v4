@@ -1,0 +1,22 @@
+@mixin placeholder($className: '', $color: $cl-black) {
+    .#{$className}::-webkit-input-placeholder {
+        color: $color;
+        transition-property: color;
+        transition-duration: 0.5s;
+    }
+    .#{$className}::-moz-placeholder {
+        color: $color;
+        transition-property: color;
+        transition-duration: 0.5s;
+    }
+    .#{$className}::-moz-placeholder {
+        color: $color;
+        transition-property: color;
+        transition-duration: 0.5s;
+    }
+    .#{$className}::-ms-input-placeholder {
+        color: $color;
+        transition-property: color;
+        transition-duration: 0.5s;
+    }
+}

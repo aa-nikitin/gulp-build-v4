@@ -1,0 +1,27 @@
+// -- основные переменные --
+@import 'scss/vars.scss';
+
+// -- подключение стилей для шрифтов --
+@import '../fonts/**/*';
+
+// -- подключение модулей(миксинов итд) --
+@import 'scss/modules/**/*';
+
+// -- базовые стили --
+@import 'scss/fonts.scss';
+@import 'scss/fs.scss';
+@import 'components/content/**/*';
+@import 'scss/base.scss';
+@import 'scss/container.scss';
+@import 'scss/common.scss';
+@import 'scss/sections.scss';
+
+
+// -- компоненты --
+@import 'components/controls/**/*';
+@import 'components/form-fields/**/*';
+@import 'components/tpl/**/*';
+@import 'components/elements/**/*';
+@import 'components/categories/**/*';
+@import 'components/contacts/**/*';
+@import 'components/forms/**/*';

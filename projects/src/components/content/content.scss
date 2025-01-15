@@ -1,0 +1,46 @@
+.content {
+    max-width: 100%;
+
+    & ul:not([class]) {
+        @extend .ul;
+    }
+
+    & ol:not([class]) {
+        @extend .ol;
+    }
+
+    & p {
+        line-height: 1.5;
+        @include ind-m(10px, (t b));
+
+        &:first-child {
+            margin-top: 0px;
+        }
+    }
+
+    & table {
+        @include ind-m(40px, (t b));
+        &:not([class]) {
+            @extend .table;
+        }
+    }
+
+    & h1 {
+        @extend .content-title--h1;
+    }
+    & h2 {
+        @extend .content-title--h2;
+    }
+    & h3 {
+        @extend .content-title--h3;
+    }
+    & h4 {
+        @extend .content-title--h4;
+    }
+    & h5 {
+        @extend .content-title--h5;
+    }
+    & h6 {
+        @extend .content-title--h6;
+    }
+}

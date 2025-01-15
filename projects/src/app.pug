@@ -1,0 +1,73 @@
+include ./pug/config
+include ./pug/vars
+include ./pug/pages
+include ./pug/modules/_index
+
+include ./components/controls/_index
+include ./components/form-fields/_index
+include ./components/content/_index
+include ./components/tpl/_index
+include ./components/contacts/_index
+include ./components/elements/_index
+include ./components/categories/_index
+include ./components/forms/_index
+
+block variables
+    - var title = 'title'
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="utf-8")
+        title #{title}
+        meta(name="author" content="author")
+        meta(name="description" content="description")
+        meta(name="keywords" content="keywords")
+        meta(content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport")
+        meta(content="ie=edge" http-equiv="x-ua-compatible")
+
+        //- Поключение стилей внешних библиотек
+        if (config.outsideLibsCss) 
+            link(rel="stylesheet" href="./assets/css/libs.min.css")
+
+        //- Поключение стилей для спрайтов
+        if (config.spriteStyles)
+            link(rel="stylesheet" href="./assets/img/sprite/sprite.css")
+
+        link(rel="stylesheet" href="./assets/css/app.css")
+
+        //- Поключение скрипта яндекс карты которая собирается через конструктор
+        if (config.yandexMapApi)
+            script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=2f6a31fe-faac-43cc-990d-1f02ce5f4ef4" type="text/javascript")
+
+        //- Поключение скрипта внешних библиотек
+        if (config.outsideLibsJs)  
+            script(src='assets/js/libs.min.js')
+    body
+        if (isIndex)
+            block content
+        else
+            .sections
+                +header()
+                main.sections__main
+                    //- +top-menu()
+                    block content
+                +footer()
+                //- +popups()
+                //- a.button-up(id="button-up")
+                +info-popup('info-popup', 'policy')
+                    h2(class=`${cl}__head`) Политика конфиденциальности
+                    div(class=`${cl}__content`)
+                        +lorem-ipsum()
+                +notify-popup('notify-popup')
+                    //- |Заявка успешно отправлена
+                +preloader()
+
+                +form-popup({
+                    cl: 'form-popup'
+                }) 
+            //- js файл для работы с handlebars, так же в config.js в корне сборки дожна быть включена переменная applyHbs = true;
+            if (config.hbsLibs) 
+                script(src='assets/js/hbs.min.js') 
+
+            script(src='assets/js/app.js')

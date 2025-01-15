@@ -1,0 +1,6 @@
+.form-popup {
+    display: none;
+    &__field {
+        @include ind-m(15px, (b));
+    }
+}
