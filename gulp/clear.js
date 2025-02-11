@@ -1,5 +1,8 @@
-import {deleteAsync} from 'del';
+import { deleteAsync } from 'del';
 
-export default function() {
-  return deleteAsync('build');
+export default function ({ config }) {
+    return function clear() {
+        const { rootBuild } = config;
+        return deleteAsync(`${rootBuild}`);
+    };
 }

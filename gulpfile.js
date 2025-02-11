@@ -73,7 +73,7 @@ function serve() {
 
 // сборка для разработки
 const dev = series(
-    clear,
+    clear(params),
     [...hbsTasks, ...libsTasks],
     parallel([pug, sassDev, jsDev, images, spriteImg(params), spriteSvg(params), copyFonts(params)]),
     parallel(watch, serve)
@@ -81,14 +81,14 @@ const dev = series(
 
 // сборка для продакшна
 const build = series(
-    clear,
+    clear(params),
     [...hbsTasks, ...libsTasks],
     parallel([pug, sassBuild, jsBuild, images, spriteImg(params), spriteSvg(params), copyFonts(params)])
 );
 
 // сборка для доработок, тоже что build но с liveReload
 const buildev = series(
-    clear,
+    clear(params),
     [...hbsTasks, ...libsTasks],
     parallel([pug, sassBuild, jsBuild, images, spriteImg(params), spriteSvg(params), copyFonts(params)]),
     parallel(watch, serve)
@@ -112,7 +112,7 @@ const fonts = series(parallel(ttf2woff, ttf2woff2, ttf2eot), font2css);
 // генерация меню
 const pages = series(pugMenu);
 
-const files = series(clearImages, parallel(images, spriteImg(params), spriteSvg(params)));
+const files = series(clearImages(params), parallel(images, spriteImg(params), spriteSvg(params)));
 
 export default dev;
 export { build, favicon, sprite, fonts, pages, buildev, files, hbsbuild  };
