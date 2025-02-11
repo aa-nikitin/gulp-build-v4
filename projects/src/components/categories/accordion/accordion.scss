@@ -1,0 +1,46 @@
+.accordion {
+    &__item {
+        @include ind-m(20px, (b));
+    }
+}
+.accordion-item {
+
+    &.active {
+        & .accordion-item {
+            &__icon {
+                transform: rotate(90deg);
+            }
+        }
+    }
+    &__top {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__head {
+        cursor: pointer;
+        font-weight: 300;
+    }
+    &__box-icon {
+        display: flex;
+        align-items: center;
+        @include ind-m(10px, (l));
+    }
+    &__icon {
+        width: 14px;
+        height: 14px;
+        transform: rotate(-90deg);
+        transition-property: transform;
+        transition-duration: 0.5s;
+    }
+    &__body {
+        @include ind-p(15px, (t));
+        color: $cl-black;
+        font-weight: 400;
+        line-height: 1.5;
+        overflow: hidden;
+        transition-property: height;
+        transition-duration: 0.5s;
+    }
+}

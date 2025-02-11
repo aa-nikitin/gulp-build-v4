@@ -16,13 +16,13 @@
     //- если второй параметр не задан используется первый
 
     var contacts = {
-        phone: ['+7 (999) 99-99-99', '[[+phone]]'],
-        tel: ['7999999999', '[[convertNumber? &str=`[[++phone]]`]]'],
-        address: ['тут будет адрес', '[[++address]]'],
-        email: ['info@info.ru', '[[++email]]'],
-        copyright: ['© 2025. Все права защищены.', '[[++copyright]]'],
-        counter: [`<img src="${files}/counter.png" alt="" />`, '[[++counter]]'],
-        policy: [`data-fancybox="" data-src="#policy"`, '[[$policy]]'],
+        phone: ['+7 (999) 99-99-99', '{\'phone\' | config}'],
+        tel: ['7999999999', '{$_modx->runSnippet(\'@FILE snippets/convert_number.php\', [\'str\' => \'phone\' | config])}'],
+        address: ['тут будет адрес', '{\'address\' | config}'],
+        email: ['info@info.ru', '{\'email\' | config}'],
+        copyright: ['© 2025. Все права защищены.', '{\'copyright\' | config}'],
+        counter: [`[счетчик метрики]`, '{\'counter\' | config}'],
+        policy: [`data-fancybox="" data-src="#policy"`, '{\'policy\' | config}'],
         siteName: ['ЯСИМ'],
         siteLink: ['http://yasim.ru/']
     } 

@@ -1,0 +1,49 @@
+.seo-text {
+    @include ind-m(45px, (t));
+    @include ind-m(20px, (b));
+
+    &.active {
+        & .seo-text {
+            &__icon {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+    }
+
+    &__head {
+        cursor: pointer;
+        text-decoration: underline;
+        color: $cl-main;
+        font-weight: 300;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &__box-icon {
+        display: flex;
+        align-items: center;
+        @include ind-m(10px, (l));
+    }
+    &__icon {
+        width: 14px;
+        height: 14px;
+        transform: rotate(-90deg);
+        transition-property: transform;
+        transition-duration: 0.5s;
+    }
+
+    &__body {
+        @include ind-p(15px, (t));
+        color: $cl-black;
+        font-weight: 400;
+        line-height: 1.5;
+        overflow: hidden;
+        transition-property: height;
+        transition-duration: 0.5s;
+    }
+}

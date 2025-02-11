@@ -10,6 +10,7 @@
         @include ind-p(20px, (l r));
         @include ind-p(20px, (t b));
     }
-    // &__head {
-    // }
+    &__head {
+        @include ind-m(40px, (b));
+    }
 }

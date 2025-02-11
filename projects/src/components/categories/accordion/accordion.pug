@@ -1,0 +1,21 @@
+-
+    var accordion = { className: 'accordion', classItem: 'accordion-item', items: [
+        {name: 'Аккордион элемент 1', text: ''},
+        {name: 'Аккордион элемент 2', text: 'Lorem ipsum dolor sit amet'},
+        {name: 'Аккордион элемент 3', text: ''},
+        {name: 'Аккордион элемент 4', text: ''},
+        {name: 'Аккордион элемент 5', text: ''}
+    ]}
+
+mixin accordion(cl, i, params, key)
+    div(class=`${cl}`)
+        div(class=`${cl}__top ${cl}-head`)
+            div(class=`${cl}__head`) !{i.name}
+            div(class=`${cl}__box-icon`)
+                svg(class=`${cl}__icon`)
+                    use(xlink:href="./assets/files/sprite.svg#arrow-slider")
+        div(class=`${cl}__body ${cl}-body content`)
+            if (i.text)
+                |!{i.text}
+            else
+                +lorem-ipsum()

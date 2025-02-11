@@ -1,4 +1,4 @@
-import BaseFetch from '../../../js/modules/forms/BaseFetch.js';
+import BaseFetch from '../../../js/modules/BaseFetch.js';
 import configForms from '../../../js/configs/config-forms.js';
 
 const formName = 'form-page';

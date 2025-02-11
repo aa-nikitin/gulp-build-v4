@@ -10,11 +10,23 @@
     }
 
     &__standart {
-        &--padding {
+        &--p {
             @include ind-p(120px, (t b));
         }
-        &--margin {
+        &--pt {
+            @include ind-p(120px, (t));
+        }
+        &--pb {
+            @include ind-p(120px, (b));
+        }
+        &--m {
             @include ind-m(120px, (t b));
+        }
+        &--mt {
+            @include ind-m(120px, (t));
+        }
+        &--mb {
+            @include ind-m(120px, (b));
         }
     }
 }

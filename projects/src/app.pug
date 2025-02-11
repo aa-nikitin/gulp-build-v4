@@ -56,12 +56,15 @@ html(lang="ru")
                 //- +popups()
                 //- a.button-up(id="button-up")
                 +info-popup('info-popup', 'policy')
-                    h2(class=`${cl}__head`) Политика конфиденциальности
-                    div(class=`${cl}__content`)
+                    h2(class=`info-popup__head`) Политика конфиденциальности
+                    div(class=`info-popup__content`)
                         +lorem-ipsum()
                 +notify-popup('notify-popup')
                     //- |Заявка успешно отправлена
                 +preloader()
+                +button-up('button-up', {
+                    id: 'button-up'
+                })
 
                 +form-popup({
                     cl: 'form-popup'

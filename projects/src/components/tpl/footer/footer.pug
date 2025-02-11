@@ -1,12 +1,14 @@
 mixin footer()
     footer.sections__footer 
         .container
-            .madein
-                .madein__text Сайт разработан
-                a.madein__site(href=`${modx('siteLink')}` rel="noopener nofollow noreferrer") !{modx('siteName')}
-            
-            |!{`<a class="policy-link" ${modx('policy')}>Политика конфиденциальности</a>`}
+            .footer
+                .madein
+                    .madein__text Сайт разработан
+                    a.madein__site(href=`${modx('siteLink')}` rel="noopener nofollow noreferrer") !{modx('siteName')}
+                
+                |!{`<a class="policy-link" ${modx('policy')}>Политика конфиденциальности</a>`}
 
-            |!{modx('counter')}
-            
-            .copyright !{modx('copyright')}
+                .counter
+                    |!{modx('counter')}
+                
+                .copyright !{modx('copyright')}

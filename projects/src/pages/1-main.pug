@@ -6,7 +6,7 @@ block variables
 
 block content
 
-    section.sections__standart.sections__standart--margin
+    section.sections__standart.sections__standart--m
         .container 
             .content-title.content-title--h2 Слайдер главный
             .main-slider(id="main-slider")
@@ -38,7 +38,7 @@ block content
                         svg.icon.slider-btn__icon
                             use(xlink:href="./assets/files/sprite.svg#arrow-slider")
 
-    section.sections__standart.sections__standart--margin
+    section.sections__standart.sections__standart--m
         .container 
             .content-title.content-title--h2 Галлерея слайдер
             .gallery(id="gallery-slider")
@@ -57,3 +57,6 @@ block content
             //- input(id="mask-phone")
             //- input(id="mask-phone2")
             //- input.test-input
+    section.sections__standart.sections__standart--m
+        .container 
+            +cat-list('accordion', accordion)
