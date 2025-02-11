@@ -83,7 +83,9 @@ export default class BaseFetch {
      * проверка занчения поля на корректность при вводе
      */
     startHandle() {
-        const fields = document.getElementById(this.idForm).querySelectorAll(`.ffield`);
+        const elemForm = document.getElementById(this.idForm);
+        if (!elemForm) return;
+        const fields = elemForm.querySelectorAll(`.ffield`);
         fields.forEach((field) => {
             const errorWatch = field.closest('.error-watch');
             if (this.isWatch && errorWatch) {
@@ -208,7 +210,6 @@ export default class BaseFetch {
     successHandle(results) {
         if (this.success)
             setTimeout(() => {
-                console.log('results');
                 this.success(results);
             }, 100);
     }
@@ -224,11 +225,9 @@ export default class BaseFetch {
         }
         this.error(error.message);
         if (this.error) {
-            setTimeout(() => {
-            }, 100);
+            setTimeout(() => {}, 100);
         }
     }
-
 
     /**
      * метод отправки через GET

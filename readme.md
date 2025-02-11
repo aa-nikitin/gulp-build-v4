@@ -89,3 +89,15 @@
 ```sh
     gulp files
 ```
+--------------------------------------
+##### 11. Генерация Hbs(шаблонов)
+чтобы бересобрать только Hbs после изменения шаблонов, необходимо:
+- удалить файл template.js который находится в  "src"\js\hbs\templates\templates.js
+- необходимо 2 раза выполнить команду 
+```sh
+    gulp hbsbuild
+```
+пример вызова Hbs:
+```js
+    console.log(Hbs.app({doesWhat: 'aaaaaaaa', elements: [{text: 'rocks1!'}, {text: 'rocks2!'}]}));
+```

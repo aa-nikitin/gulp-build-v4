@@ -94,6 +94,11 @@ const buildev = series(
     parallel(watch, serve)
 );
 
+// пересборка Hbs(нужно удалить файл template.js - js\hbs\templates\templates.js)
+const hbsbuild = series(
+    [...hbsTasks, ...libsTasks]
+);
+
 // генерация фавикона
 const favicon = series(faviconGenerate(params), faviconMarkups(params));
 
@@ -110,4 +115,4 @@ const pages = series(pugMenu);
 const files = series(clearImages, parallel(images, spriteImg(params), spriteSvg(params)));
 
 export default dev;
-export { build, favicon, sprite, fonts, pages, buildev, files  };
+export { build, favicon, sprite, fonts, pages, buildev, files, hbsbuild  };

@@ -5,10 +5,11 @@ mixin text-field(i)
         input(
             id = `${id}`
             class = `${className}__input ${i.fieldName}` + (i.cl ? ` ${i.cl}` : '') 
-            type = 'text' 
+            type = '' + (i.type ? `${i.type}` : 'text')
             name = `${i.name}`
             placeholder = `${i.caption}` 
             value = '' + (i.value ? `${i.value}` : '' )
             data-checks = `` + (i.checks ? i.checks : '')
             data-type = `text-field`
+            readonly = (i.readonly ? true : false)
         )

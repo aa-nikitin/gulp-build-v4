@@ -15,6 +15,15 @@ body {
     &.hide-scrollbar .sections {
         overflow-y: scroll !important;
     }
+    &::-webkit-scrollbar {
+        width: 6px; /* ширина scrollbar */
+    }
+    &::-webkit-scrollbar-track {
+        background: $cl-gray; /* цвет дорожки */
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $cl-main; /* цвет плашки */
+    }
 }
 
 * {

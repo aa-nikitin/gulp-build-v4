@@ -40,9 +40,10 @@ const formOrder = new BaseFetch(
     },
     configForms
 );
-
-document.getElementById(`${formName}-send`).addEventListener('click', (e) => {
-    formOrder.start();
-});
+const elemForm = document.getElementById(`${formName}-send`);
+if (elemForm)
+    elemForm.addEventListener('click', (e) => {
+        formOrder.start();
+    });
 
 formOrder.startHandle();
