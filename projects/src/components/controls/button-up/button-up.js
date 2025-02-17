@@ -5,12 +5,12 @@ window.buttonUpScroll = (scrollTop) => {
     if (scrollTop > 400) buttonUp.classList.add('active');
     else buttonUp.classList.remove('active');
 };
-
 const buttonUp = document.querySelector(`.${buttonUpName}`);
-buttonUp.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
+if (buttonUp)
+    buttonUp.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
     });
-});

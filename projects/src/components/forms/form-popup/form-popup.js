@@ -1,5 +1,5 @@
 import BaseFetch from '../../../js/modules/BaseFetch.js';
-import configForms from '../../../js/configs/config-forms.js';
+import configForms from '../../../js/configs/forms.js';
 
 const formName = 'form-popup';
 const phone = document.getElementById(`${formName}-phone`);

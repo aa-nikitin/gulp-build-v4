@@ -2,11 +2,19 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    &__header {
-    }
+    // &__header {
+    // }
 
     &__footer {
         margin-top: auto;
+    }
+
+    &__top-menu {
+        @include ind-m(40px, (t));
+    }
+
+    &__breadcrumbs {
+        @include ind-m(40px, (t));
     }
 
     &__standart {

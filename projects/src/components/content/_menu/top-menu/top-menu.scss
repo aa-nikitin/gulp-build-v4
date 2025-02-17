@@ -1,0 +1,12 @@
+.top-menu {
+    display: flex;
+    &__item {
+        margin-right: 20px;
+    }
+    &__link {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

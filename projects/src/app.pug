@@ -6,8 +6,6 @@ include ./pug/modules/_index
 include ./components/controls/_index
 include ./components/form-fields/_index
 include ./components/content/_index
-include ./components/tpl/_index
-include ./components/contacts/_index
 include ./components/elements/_index
 include ./components/categories/_index
 include ./components/forms/_index
@@ -49,7 +47,10 @@ html(lang="ru")
         else
             .sections
                 +header()
+                +top-menu(topMenu)
                 main.sections__main
+                    if (bCrumbs)
+                        +breadcrumbs(breadcrumbs)
                     //- +top-menu()
                     block content
                 +footer()

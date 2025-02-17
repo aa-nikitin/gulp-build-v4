@@ -1,0 +1,23 @@
+-
+    var topMenu = [
+        {name: 'Пункт меню 1', link: ''},
+        {name: 'Пункт меню 2', link: ''},
+        {name: 'Пункт меню 3', link: ''},
+        {name: 'Пункт меню 4', link: ''},
+        {name: 'Пункт меню 5', link: ''},
+        {name: 'Пункт меню 6', link: ''},
+        {name: 'Пункт меню 7', link: ''},
+        {name: 'Пункт меню 8', link: ''}
+    ]
+
+mixin top-menu(menu) 
+    section.sections__top-menu
+        .container
+            .top-menu 
+                each i in menu
+                    -
+                        var link = `${i.link ? i.link : '#'}`
+                    .top-menu__item
+                        a.top-menu__link(href=link) !{i.name}
+
+

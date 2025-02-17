@@ -1,0 +1,9 @@
+mixin header()
+    header.sections__header
+        .container
+            .header
+                a.logo(href='/')
+                    img.logo__img(src=`${files}/logo.png` alt='')   
+                a.phone(href=`tel:${modx('tel')}`) !{modx('phone')}
+                a.email(href=`mailto:${modx('email')}`) !{modx('email')}
+                a.button(form-popup data-src="#form-popup") Обратный звонок

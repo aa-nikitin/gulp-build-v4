@@ -12,15 +12,23 @@
     &__pagination {
         display: flex;
         justify-content: center;
+        & .swiper-pagination-lock {
+            display: none;
+        }
     }
     &__navigation {
         display: flex;
         justify-content: center;
         align-items: center;
+        & .swiper-button-lock {
+            display: none;
+        }
     }
     &__item {
         @include ind-p(10px, (), 2);
         width: 25%;
+        transition-property: transform;
+        transition-duration: 0.5s;
     }
 }
 

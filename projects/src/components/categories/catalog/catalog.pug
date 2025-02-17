@@ -17,7 +17,7 @@ mixin catalog(cl, i, params, key)
         var link = `${i.link ? i.link : '#'}`
     div(class = `${cl}`)
         div(class = `${cl}__top`)
-            a(class = `${cl}__image` href = `${img}` data-fancybox = `${params.fancybox ? params.fancybox : cl}` data-caption = `${i.name}`)
+            a(class = `${cl}__image` href = `${link}`)
                 img(class = `${cl}__img` src = `${img}`, alt = `${i.name}`)
             div(class = `${cl}__name`) !{i.name}
         div(class = `${cl}__bottom`) bottom

@@ -1,0 +1,20 @@
+-
+    var breadcrumbs = { className: 'breadcrumbs', items: [
+        { name: 'Главная', link: '/' },
+        { name: 'Хлебные крошки', link: '/#' },
+        { name: 'Текущая страница', link: '' }
+    ] }
+
+mixin breadcrumbs(obj)
+    section.sections__breadcrumbs
+        .container 
+            ul(class=`${obj.className}`)&attributes(attributes)
+                each item, key in obj.items
+                    +breadcrumbs-item(obj.className, item)
+
+mixin breadcrumbs-item(cl, i)
+    if (i.link) 
+        li(class=`${cl}__item`)
+            a(href=`${i.link}` class=`${cl}__link`) #{i.name}
+    else 
+        li(class=`${cl}__item`) #{i.name}

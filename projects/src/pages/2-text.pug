@@ -3,68 +3,89 @@ extends ../app
 block variables
     - 
         title = 'Текстовая'
+        bCrumbs = true 
 
 block content
-
     section.sections__standart.sections__standart--m
         .container 
             .content-title.content-title--h1 Текстовая
+
+    section.sections__standart.sections__standart--m
+        .container 
+            .content-title.content-title--h2 Галлерея слайдер
+            .gallery(id="gallery-slider")
+                .gallery__slider.swiper-wrapper
+                    +cat-list('gallery', gallery, {commonClassItem: 'swiper-slide', hideMainDiv: true}, {fancybox: 'gallery-slider'})
+                .gallery__pagination
+                    .slider-pagination(id="gallery-slider-pagination")
+                .gallery__navigation
+                    .slider-btn.slider-btn--prev.gallery-slider__navigation-prev(id="gallery-slider-prev")
+                        svg.icon.slider-btn__icon
+                            use(xlink:href="./assets/files/sprite.svg#arrow-slider")
+                    .slider-btn.slider-btn--next.gallery-slider__navigation-next(id="gallery-slider-next")
+                        svg.icon.slider-btn__icon
+                            use(xlink:href="./assets/files/sprite.svg#arrow-slider")
+                            
+    section.sections__standart.sections__standart--m
+        .container 
+            +cat-list('accordion', accordion)
+
+    section.sections__standart.sections__standart--m
+        .container 
+            +modx-block('{$_modx->getChunk(\'@FILE chunks/content/content.tpl\')}')
+                .content
+                    h1 Заголовок 1
+                    h2 Заголовок 2
+                    h3 Заголовок 3
+                    h4 Заголовок 4
+                    h5 Заголовок 5
+                    h6 Заголовок 6
+                    p &nbsp;
+                    .content-title.content-title--h4 Текст
+                    table
+                        tr 
+                            th Заголовок таблицы 1 
+                            th Заголовок таблицы 2
+                            th Заголовок таблицы 3
+                        tr 
+                            td Строка 1 ячейка 1
+                            td Строка 1 ячейка 2
+                            td Строка 1 ячейка 3
+                        tr 
+                            td Строка 2 ячейка 1
+                            td Строка 2 ячейка 2
+                            td Строка 2 ячейка 3
+                        tr 
+                            td Строка 3 ячейка 1
+                            td Строка 3 ячейка 2
+                            td Строка 3 ячейка 3
+                    
+
+                    ul  
+                        li макрерованный список<br>на несколько строк 1
+                        li макрерованный список<br>на несколько<br>строк 2
+                        li макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3
+                        li макрерованный список 4
+                        li макрерованный список 5
+                        li макрерованный список 6
+
+                    ol  
+                        li нумерованный список<br>на несколько строк 1
+                        li нумерованный список<br>на несколько<br>строк 2
+                        li нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3
+                        li нумерованный список 4
+                        li нумерованный список 5
+                        li нумерованный список 6
+
+                    +lorem-ipsum()
+
+            +modx-block('{$_modx->getChunk(\'@FILE chunks/content/content-seo.tpl\')}')
+                +seo-text('seo-text', 'Дополнительная информация')
+                    +lorem-ipsum() 
             
+    section.sections__standart.sections__standart--m
+        .container 
             .content-title.content-title--h4 Форма
             +form-page({
                 cl: 'form-page'
             })  
-
-    section.sections__standart.sections__standart--m
-        .container 
-            .content
-                h1 Заголовок 1
-                h2 Заголовок 2
-                h3 Заголовок 3
-                h4 Заголовок 4
-                h5 Заголовок 5
-                h6 Заголовок 6
-                p &nbsp;
-                .content-title.content-title--h4 Текст
-                table
-                    tr 
-                        th Заголовок таблицы 1 
-                        th Заголовок таблицы 2
-                        th Заголовок таблицы 3
-                    tr 
-                        td Строка 1 ячейка 1
-                        td Строка 1 ячейка 2
-                        td Строка 1 ячейка 3
-                    tr 
-                        td Строка 2 ячейка 1
-                        td Строка 2 ячейка 2
-                        td Строка 2 ячейка 3
-                    tr 
-                        td Строка 3 ячейка 1
-                        td Строка 3 ячейка 2
-                        td Строка 3 ячейка 3
-                
-
-                ul  
-                    li макрерованный список<br>на несколько строк 1
-                    li макрерованный список<br>на несколько<br>строк 2
-                    li макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3  макрерованный список 3
-                    li макрерованный список 4
-                    li макрерованный список 5
-                    li макрерованный список 6
-
-                ol  
-                    li нумерованный список<br>на несколько строк 1
-                    li нумерованный список<br>на несколько<br>строк 2
-                    li нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3 нумерованный список 3
-                    li нумерованный список 4
-                    li нумерованный список 5
-                    li нумерованный список 6
-
-                +lorem-ipsum()
-
-            +seo-text('seo-text', 'Дополнительная информация')
-                +lorem-ipsum()
-                //- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        //- id: 'form-page'      
-        //- +form-popup()    

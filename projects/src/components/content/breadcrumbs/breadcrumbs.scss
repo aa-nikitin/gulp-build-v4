@@ -1,0 +1,31 @@
+.breadcrumbs {
+    @include fs(12px, 0.5);
+    color: $cl-black;
+    padding: 0;
+    line-height: 150%;
+
+    & li {
+        @include ind-p(4px, (r));
+        display: inline-block;
+        background: none;
+        &:before {
+            display: none;
+        }
+        &:after {
+            content: '/';
+            display: inline-block;
+        }
+        &:last-child:after {
+            content: '';
+        }
+
+        & a {
+            @include ind-m(7px, (r));
+            display: inline-block;
+            color: $cl-main;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
