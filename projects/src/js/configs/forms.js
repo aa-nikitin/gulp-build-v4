@@ -18,3 +18,5 @@ export default {
         error: 'размер файлов превышает 5 Мб',
     },
 };
+
+export const urlFormRequest = '/assets/components/queries/form-send.php';

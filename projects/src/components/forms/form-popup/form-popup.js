@@ -1,5 +1,5 @@
 import BaseFetch from '../../../js/modules/BaseFetch.js';
-import configForms from '../../../js/configs/forms.js';
+import configForms, {urlFormRequest} from '../../../js/configs/forms.js';
 
 const formName = 'form-popup';
 const phone = document.getElementById(`${formName}-phone`);
@@ -24,17 +24,19 @@ const formOrder = new BaseFetch(
     {
         idForm: formName,
         fieldName: 'ffield',
-        url: 'https://test.ru/test/',
+        nameOrder: 'Обратный звонок',
+        url: urlFormRequest,
         method: 'post',
         preloader: 'preloader',
         isWatch: true,
         isClear: true,
         success: (data) => {
-            notifyHandle('Заявка успешно отправлена', 'green');
-
             // console.log(data);
+            notifyHandle('Заявка успешно отправлена', 'green');
+            Fancybox.close();
         },
         error: (error) => {
+            // console.log(error);
             notifyHandle(error, 'red');
         },
     },

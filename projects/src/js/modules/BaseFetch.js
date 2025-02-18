@@ -10,6 +10,7 @@ import Validate from './Validate';
 export default class BaseFetch {
     idForm; ///< (string) определяем основной контейнер по id формы вся работа с селекторами опирается на него
     fieldName; ///< (string) имя класса по которому в контейнере(idForm) находятся поля с которыми будет вестись работа
+    nameOrder; ///< (string) наименование заявки(например "Заявка", "Обратный звонок", "Отзыв" и т.д.)
     method; ///< (string) метод которым буде отправлен запрос, в зависимости от этого вызывается внутренние методы класса с соотвестствующей обработкой
     url; ///< (string) путь к обработке запроса
     preloader; ///< (string) крутилка на время ожидания выполнения запроса, указывается ID прелоадера, если не указан то не отображается
@@ -28,9 +29,10 @@ export default class BaseFetch {
 
     
 
-    constructor({ idForm, fieldName, method, url, preloader, success, error, isWatch, isClear }, configForms = {}) {
+    constructor({ idForm, fieldName, nameOrder, method, url, preloader, success, error, isWatch, isClear }, configForms = {}) {
         this.idForm = idForm;
         this.fieldName = fieldName ? fieldName : 'ffield';
+        this.nameOrder = nameOrder ? nameOrder : '';
         this.method = method ? method : 'GET';
         this.url = url ? url : '/';
         this.preloader = preloader ? preloader : '';
@@ -311,6 +313,9 @@ export default class BaseFetch {
                     break;
             }
         }
+        formData.append('name-order', this.nameOrder);
+        formData.append('allow', true);
+        formData.append('url', window.location.href);
 
         // for (let [name, value] of formData) { //- для отладки formData
         //     console.log(name, value);
