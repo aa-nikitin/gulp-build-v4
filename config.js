@@ -3,13 +3,12 @@
 //----------------------
 //- список проектов в папке projects
 const projects = {
-  0: 'csm-qrcode',
-  1: 'src'
+  0: 'src'
 };
 
 //----------------------
 //- проект который будет запущен при команде gulp или npn run gulp, передаем ключ нужного проекта
-const projectName = projects[1]; // [!]
+const projectName = projects[0]; // [!]
 //- полный путь к проекту
 const src = `./projects/${projectName}`;
 
