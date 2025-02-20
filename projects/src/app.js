@@ -23,3 +23,10 @@ window.addEventListener(
     },
     true
 );
+
+window.addEventListener('resize', () => {
+    clearTimeout(delayTimer);
+    delayTimer = setTimeout(function () {
+        location.reload();
+    }, 200);
+});

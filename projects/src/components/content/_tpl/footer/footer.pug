@@ -4,11 +4,11 @@ mixin footer()
             .footer
                 .madein
                     .madein__text Сайт разработан
-                    a.madein__site(href=`${modx('siteLink')}` rel="noopener nofollow noreferrer" target="_blank") !{modx('siteName')}
+                    a.madein__site(href=`${modxConfig('siteLink')}` rel="noopener nofollow noreferrer" target="_blank") !{modxConfig('siteName')}
                 
-                |!{`<a class="policy-link" ${modx('policy')}>Политика конфиденциальности</a>`}
+                |!{`<a class="policy-link" ${modxConfig('policy')}>Политика конфиденциальности</a>`}
 
                 .counter
-                    |!{modx('counter')}
+                    |!{modxConfig('counter')}
                 
-                .copyright !{modx('copyright')}
+                .copyright !{modxConfig('copyright')}

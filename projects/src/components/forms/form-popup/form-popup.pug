@@ -41,7 +41,7 @@ mixin form-popup(i)
             +checkbox({
                 id: `${idForm}-policy`,
                 name: 'policy',
-                caption: `Я прочитал и согласен с правилами <a ${modx('policy')}>Политики конфиденциальности</a>`,
+                caption: `Я прочитал и согласен с правилами <a ${modxConfig('policy')}>Политики конфиденциальности</a>`,
                 checked: true,
                 value: 'policy',
                 fieldName: 'ffield',

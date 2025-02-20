@@ -1,0 +1,18 @@
+-
+    var socialsSvg = { className: 'socials-svg', items: [
+        { icon: 'tg', link: 'https://telegram.com/'},
+        { icon: 'wa', link: 'https://whatsapp.com/'},
+        { icon: 'vk', link: 'https://vk.com/'}
+    ] }
+
+
+mixin socials-svg(obj)
+    div(class=`${obj.className}`)&attributes(attributes)
+        each item, key in obj.items
+            +socials-svg-item(obj.className, item)
+
+mixin socials-svg-item(cl, i)
+    if (i.icon && i.link)
+        a(class=`${cl}__item` target="_blank" href=`${modxAttr(i.link, `{$_modx->config.${i.icon}}`)}`)
+            svg(class=`${cl}__icon ${cl}__icon--${i.icon}`)
+                use(xlink:href=`./assets/files/sprite.svg#${i.icon}`)

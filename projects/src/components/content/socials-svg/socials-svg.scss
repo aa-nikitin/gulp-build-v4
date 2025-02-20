@@ -1,0 +1,39 @@
+.socials-svg {
+    display: flex;
+    justify-content: center;
+    &__item {
+        display: flex;
+        align-items: center;
+        @include ind-m(10px, (r), 1);
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+    &__icon {
+        width: 26px;
+        height: 26px;
+        fill: transparent;
+        stroke: $cl-main;
+        transition-property: stroke, fill;
+        transition-duration: 0.5s;
+        &:hover {
+            stroke: $cl-second;
+        }
+        // &--tg {
+        // }
+        &--wa {
+            width: 24px;
+            height: 24px;
+            stroke: transparent;
+            fill: $cl-main;
+            &:hover {
+                stroke: transparent;
+                fill: $cl-second;
+            }
+        }
+        &--vk {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
