@@ -13,11 +13,12 @@
 mixin top-menu(menu) 
     section.sections__top-menu
         .container
-            .top-menu 
-                each i in menu
-                    -
-                        var link = `${i.link ? i.link : '#'}`
-                    .top-menu__item
-                        a.top-menu__link(href=link) !{i.name}
+            nav
+                ul.top-menu 
+                    each i in menu
+                        -
+                            var link = `${i.link ? i.link : '#'}`
+                        li.top-menu__item
+                            a.top-menu__link(href=link) !{i.name}
 
 
