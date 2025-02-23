@@ -18,6 +18,7 @@ export default class BaseFetch {
     error; ///< (function) callback функция для дальнейшей обработки в случае если запрос выполнен с ошибками, предоставляет первый параметр с информацией об ошибке
     isWatch; ///< (boolean) если true, отслеживаем изменения в полях при вводе и проверяем на корректность
     isClear; ///< (boolean) если true, после отправки очищаем поля(устанавливаем исходные значения)
+    isTest; ///< (boolean) если true, то будет включен режим отладки(например вывод в консоль значений перед отправкой)
 
     configRequire; ///< (object) объект с текстами и правилами для проверки ошибок на пустоту при заполненнии полей
     configEmail; ///< (object) объект с текстами и правилами для проверки email на корректность заполнения
@@ -27,9 +28,10 @@ export default class BaseFetch {
     dataFields; ///< (array) хранит список полей с параметрами необходимыми для проверки и отправки
     // dataStartFields; ///< (array) стартовые значения полей
 
-    
-
-    constructor({ idForm, fieldName, nameOrder, method, url, preloader, success, error, isWatch, isClear }, configForms = {}) {
+    constructor(
+        { idForm, fieldName, nameOrder, method, url, preloader, success, error, isWatch, isClear, isTest },
+        configForms = {}
+    ) {
         this.idForm = idForm;
         this.fieldName = fieldName ? fieldName : 'ffield';
         this.nameOrder = nameOrder ? nameOrder : '';
@@ -40,6 +42,7 @@ export default class BaseFetch {
         this.error = error ? error : undefined;
         this.isWatch = !!isWatch;
         this.isClear = !!isClear;
+        this.isTest = !!isTest;
         this.default = [];
 
         this.configRequire = configForms.require
@@ -266,6 +269,12 @@ export default class BaseFetch {
                     break;
             }
         }
+
+        if (this.isTest) {
+            //- для отладки formData
+            console.log(formData);
+        }
+
         try {
             const response = await fetch(`${this.url}?` + new URLSearchParams(formData).toString(), {
                 method: 'GET',
@@ -317,9 +326,12 @@ export default class BaseFetch {
         formData.append('allow', true);
         formData.append('url', window.location.href);
 
-        // for (let [name, value] of formData) { //- для отладки formData
-        //     console.log(name, value);
-        // }
+        if (this.isTest) {
+            //- для отладки formData
+            for (let [name, value] of formData) {
+                console.log(name, value);
+            }
+        }
 
         try {
             const response = await fetch(this.url, {
@@ -349,9 +361,10 @@ export default class BaseFetch {
      * запускает проверку полей и отправку запроса на сервер
      */
     start() {
-        const fields = document.getElementById(this.idForm).querySelectorAll(`.${this.fieldName}`);
         let allow = true;
+        const fields = document.getElementById(this.idForm).querySelectorAll(`.${this.fieldName}`);
         this.dataFields = [];
+        
         fields.forEach((field) => {
             const fieldContainer = field.closest(`.field-container`);
             const fieldValue = field.value;
@@ -412,6 +425,7 @@ export default class BaseFetch {
                 id: field.id,
             };
         });
+
         if (allow) {
             if (this.preloader) {
                 const preloader = document.getElementById(this.preloader);
