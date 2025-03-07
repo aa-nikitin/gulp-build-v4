@@ -1,6 +1,6 @@
 mixin radiobox(i)
     - var id = i.id ? i.id : ''
-    - var className = 'radiobox'
+    - var className = i.className ? `${i.className}` : 'radiobox'
     div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
         label(class=`${className}__label`)
             input(

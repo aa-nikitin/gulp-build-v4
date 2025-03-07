@@ -1,6 +1,7 @@
 mixin radiobox-group(i)
     - var id = i.id ? i.id : ''
-    - var className = 'radiobox-group'
+    - var className = i.className ? `${i.className}-group` : 'radiobox-group'
+    - var classRadiobox = i.className ? `${i.className}` : 'radiobox'
     div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
         input(
             id=`${id}`
@@ -15,10 +16,11 @@ mixin radiobox-group(i)
             div(class = `${className}__item`)
                 +radiobox({
                     id: `${id}-${keyList + 1}`,
-                    name: 'radiobox-group',
+                    name: `${id}`,
                     caption: `${itemList.name}`,
                     checked: itemList.checked,
                     value: '' + (itemList.value ? itemList.value : itemList.name),
                     fieldName: '',
+                    className: `${classRadiobox}`,
                     showCaption: !!i.showCaption
                 })

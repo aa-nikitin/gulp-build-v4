@@ -1,6 +1,7 @@
 mixin checkbox-group(i)
     - var id = i.id ? i.id : ''
-    - var className = 'checkbox-group'
+    - var className = i.className ? `${i.className}-group` : 'checkbox-group'
+    - var classCheckbox = i.className ? `${i.className}` : 'checkbox'
     div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
         input(
             id=`${id}`
@@ -15,10 +16,11 @@ mixin checkbox-group(i)
             div(class = `${className}__item`)
                 +checkbox({
                     id: `${id}-${keyList + 1}`,
-                    name: 'checkbox-group',
+                    name: `${id}`,
                     caption: `${itemList.name}`,
                     checked: itemList.checked,
                     value: '' + (itemList.value ? itemList.value : itemList.name),
                     fieldName: '',
+                    className: `${classCheckbox}`,
                     showCaption: !!i.showCaption
                 })

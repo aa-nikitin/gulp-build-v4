@@ -1,7 +1,6 @@
-const className = 'radiobox-group';
-const radioboxGroups = document.querySelectorAll(`.${className}`);
+const radioboxGroups = document.querySelectorAll(`.radiobtn-group, .radiobox-group`);
 
-const handleRadioboxGroup = (radioboxGroup, radiobox) => {
+const handleRadioboxGroup = (radioboxGroup, radiobox, className) => {
     const radioboxGroupEdit = radioboxGroup.querySelector(`.${className}__edit`);
     let idListRadioboxes = radioboxGroupEdit.value ? JSON.parse(radioboxGroupEdit.value) : [];
     
@@ -10,7 +9,8 @@ const handleRadioboxGroup = (radioboxGroup, radiobox) => {
 };
 
 radioboxGroups.forEach((radioboxGroup) => {
-    const radioboxes = radioboxGroup.querySelectorAll(`[name="radiobox-group"]`);
+    const radioboxes = radioboxGroup.querySelectorAll(`[data-type="radiobox"]`);
+    const className = radioboxGroup.classList[0];
     const radioboxGroupEdit = radioboxGroup.querySelector(`.${className}__edit`);
     let idListRadioboxes = [];
 
@@ -19,7 +19,7 @@ radioboxGroups.forEach((radioboxGroup) => {
             idListRadioboxes = [radiobox.id];
         }
         radiobox.addEventListener('change', () => {
-            handleRadioboxGroup(radioboxGroup, radiobox);
+            handleRadioboxGroup(radioboxGroup, radiobox, className);
 
             const event = new Event('input', { bubbles: true });
             radioboxGroupEdit.dispatchEvent(event);

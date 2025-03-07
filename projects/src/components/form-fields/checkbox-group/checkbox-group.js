@@ -1,7 +1,6 @@
-const className = 'checkbox-group';
-const checkboxGroups = document.querySelectorAll(`.${className}`);
+const checkboxGroups = document.querySelectorAll(`.checkbox-group`);
 
-const handleCheckboxGroup = (checkboxGroup, checkbox) => {
+const handleCheckboxGroup = (checkboxGroup, checkbox, className) => {
     const checkboxGroupEdit = checkboxGroup.querySelector(`.${className}__edit`);
     const idListCheckboxes = checkboxGroupEdit.value ? JSON.parse(checkboxGroupEdit.value) : [];
     const indexCheckbox = idListCheckboxes.indexOf(checkbox.id);
@@ -16,7 +15,8 @@ const handleCheckboxGroup = (checkboxGroup, checkbox) => {
 };
 
 checkboxGroups.forEach((checkboxGroup) => {
-    const checkboxes = checkboxGroup.querySelectorAll(`[name="checkbox-group"]`);
+    const checkboxes = checkboxGroup.querySelectorAll(`[data-type="checkbox"]`);
+    const className = checkboxGroup.classList[0];
     const checkboxGroupEdit = checkboxGroup.querySelector(`.${className}__edit`);
     const idListCheckboxes = [];
 
@@ -25,7 +25,7 @@ checkboxGroups.forEach((checkboxGroup) => {
             idListCheckboxes.push(checkbox.id);
         }
         checkbox.addEventListener('change', () => {
-            handleCheckboxGroup(checkboxGroup, checkbox);
+            handleCheckboxGroup(checkboxGroup, checkbox, className);
 
             const event = new Event('input', { bubbles: true });
             checkboxGroupEdit.dispatchEvent(event);

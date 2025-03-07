@@ -1,6 +1,6 @@
 mixin checkbox(i)
     - var id = i.id ? i.id : ''
-    - var className = 'checkbox'
+    - var className = i.className ? `${i.className}` : 'checkbox'
     div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
         label(class=`${className}__label`)
             input(

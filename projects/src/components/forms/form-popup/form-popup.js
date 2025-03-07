@@ -30,6 +30,7 @@ const formOrder = new BaseFetch(
         preloader: 'preloader',
         isWatch: true,
         isClear: true,
+        isTest: false,
         success: (data) => {
             // console.log(data);
             notifyHandle('Заявка успешно отправлена', 'green');
