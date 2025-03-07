@@ -1,8 +1,38 @@
-.overflow-x-hidden {
-    overflow-x: hidden;
+
+//- стили для скрола на webkit
+.scroll-styles {
+    &::-webkit-scrollbar {
+        width: 6px; /* ширина scrollbar */
+    }
+    &::-webkit-scrollbar-track {
+        background: $cl-gray; /* цвет дорожки */
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $cl-main; /* цвет плашки */
+    }
 }
 
-// .icon {
-//     width: 24px;
-//     height: 24px;
-// }
+//- иконка крестик(закрытие) на css
+.close-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        width: 80%;
+        height: 2px;
+        background-color: $cl-white;
+    }
+    &:before {
+        transform: rotate(45deg);
+    }
+    &:after {
+        transform: rotate(-45deg);
+    }
+}

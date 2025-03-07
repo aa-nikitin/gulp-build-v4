@@ -9,19 +9,20 @@ block content
 
     section.sections__standart.sections__standart--m
         .container 
-            .content-title.content-title--h2 Слайдер главный
-            .main-slider(id="main-slider")
-                .main-slider__slider.swiper-wrapper
-                    +cat-list('main-slider', mainSlider, {commonClassItem: 'swiper-slide', hideMainDiv: true})
-                .main-slider__pagination
-                    .slider-pagination(id="main-slider-pagination")
-                .catalog__navigation
-                    .slider-btn.slider-btn--prev.catalog__navigation-prev(id="main-slider-prev")
-                        svg.icon.slider-btn__icon
-                            use(xlink:href="./assets/files/sprite.svg#arrow-slider")
-                    .slider-btn.slider-btn--next.catalog__navigation-next(id="main-slider-next")
-                        svg.icon.slider-btn__icon
-                            use(xlink:href="./assets/files/sprite.svg#arrow-slider")
+            .container__main-slider
+                .content-title.content-title--h2 Слайдер главный
+                .main-slider(id="main-slider")
+                    .main-slider__slider.swiper-wrapper
+                        +cat-list('main-slider', mainSlider, {commonClassItem: 'swiper-slide', hideMainDiv: true})
+                    .main-slider__pagination
+                        .slider-pagination(id="main-slider-pagination")
+                    .catalog__navigation
+                        .slider-btn.slider-btn--prev.catalog__navigation-prev(id="main-slider-prev")
+                            svg.icon.slider-btn__icon
+                                use(xlink:href="./assets/files/sprite.svg#arrow-slider")
+                        .slider-btn.slider-btn--next.catalog__navigation-next(id="main-slider-next")
+                            svg.icon.slider-btn__icon
+                                use(xlink:href="./assets/files/sprite.svg#arrow-slider")
 
     //- section.sections__standart.sections__standart--margin
         .container 

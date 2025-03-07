@@ -1,5 +1,5 @@
 import BaseFetch from '../../../js/modules/BaseFetch.js';
-import configForms, {urlFormRequest} from '../../../js/configs/forms.js';
+import configForms, { urlFormRequest } from '../../../js/configs/forms.js';
 
 const formName = 'form-popup';
 const phone = document.getElementById(`${formName}-phone`);
@@ -51,5 +51,25 @@ if (elemForm)
 
 formOrder.startHandle();
 
-Fancybox.bind('[form-popup]', {
+//--- start настройки над окном popup(fancybox)
+
+//- простой вызов fancybox
+// Fancybox.bind(`[${formName}]`, {});
+
+//- для вызова fancybox с кастомными настройками(во всю высоту по правой или левой стороне)
+Fancybox.bind(`[${formName}]`, {
+    closeBtn: false,
+    on: {
+        'Carousel.ready': (fancybox) => {
+            fancybox.container.classList.add(`${formName}-container`);
+            fancybox.container.querySelector('.fancybox__slide').classList.add(`${formName}-iframe`);
+        },
+    },
 });
+
+//- обработчик по кнопки закрытия для fancybox
+// document.querySelector(`.${formName}__close`).addEventListener('click', (e) => {
+//     Fancybox.close();
+// });
+
+//--- end

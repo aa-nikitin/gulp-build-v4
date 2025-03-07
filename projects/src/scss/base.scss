@@ -11,6 +11,7 @@ html {
 body {
     @include mainFont();
     @extend .fs-text;
+    @extend .scroll-styles;
     // line-height: $font-lh;
     // color: $cl-font;
     // -webkit-font-smoothing: antialiased;
@@ -18,15 +19,6 @@ body {
     // &.hide-scrollbar .sections {
     //     overflow-y: scroll !important;
     // }
-    &::-webkit-scrollbar {
-        width: 6px; /* ширина scrollbar */
-    }
-    &::-webkit-scrollbar-track {
-        background: $cl-gray; /* цвет дорожки */
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: $cl-main; /* цвет плашки */
-    }
 }
 
 * {

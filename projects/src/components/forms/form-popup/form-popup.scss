@@ -1,5 +1,63 @@
 .form-popup {
     display: none;
+    &-iframe {
+        @extend .scroll-styles;
+    }
+    //--- start настройки(стили) над окном popup(fancybox)
+
+    // @extend .scroll-styles;
+    // @include ind-p(80px, (l r), 2);
+    // @include ind-p(120px, (t), 2);
+    // @include ind-p(40px, (b), 2);
+    // background-color: $cl-black;
+    // width: 800px;
+    // align-self: stretch;
+    // overflow-y: auto;
+
+    // &-iframe {
+    //     padding: 0px !important;
+    //     flex-direction: row;
+    //     align-items: stretch;
+    //     justify-content: flex-end;
+    //     overflow: hidden;
+    //     &:before,
+    //     &::after {
+    //         display: none;
+    //     }
+    //     & .is-close-btn {
+    //         display: none;
+    //     }
+    // }
+
+    // &-container {
+    //     & .fancybox__backdrop {
+    //         background-color: rgba($color: $cl-black, $alpha: 0.2);
+    //         backdrop-filter: blur(3px);
+    //     }
+    // }
+
+    // &__close {
+    //     @extend .close-icon;
+    //     position: absolute;
+    //     transition-property: background-color;
+    //     transition-duration: 0.5s;
+    //     right: 0px;
+    //     top: 0px;
+    //     width: 50px;
+    //     height: 50px;
+    //     &:hover {
+    //         background-color: $cl-second;
+    //     }
+
+    // }
+
+    //--- end
+
+
+    &__fields-wrap {
+        width: 100%;
+    }
+    
     &__field {
         @include ind-m(15px, (b));
     }
