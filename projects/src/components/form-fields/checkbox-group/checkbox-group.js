@@ -1,3 +1,6 @@
+// необходимо указать в переменной checkboxGroups селекторы всех разновидностей переключателей(через запятую)
+// например: (`.checkbox-group, .checkbox-btn-group, .checkbox-img-group`)
+
 const checkboxGroups = document.querySelectorAll(`.checkbox-group`);
 
 const handleCheckboxGroup = (checkboxGroup, checkbox, className) => {

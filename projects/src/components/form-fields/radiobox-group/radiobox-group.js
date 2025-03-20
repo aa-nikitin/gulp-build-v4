@@ -1,4 +1,7 @@
-const radioboxGroups = document.querySelectorAll(`.radiobtn-group, .radiobox-group`);
+// необходимо указать в переменной radioboxGroups селекторы всех разновидностей переключателей(через запятую)
+// например: (`.radiobox-group, .radiobox-btn-group, .radiobox-img-group`)
+
+const radioboxGroups = document.querySelectorAll(`.radiobox-group`);
 
 const handleRadioboxGroup = (radioboxGroup, radiobox, className) => {
     const radioboxGroupEdit = radioboxGroup.querySelector(`.${className}__edit`);
