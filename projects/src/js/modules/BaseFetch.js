@@ -1,4 +1,4 @@
-import Validate from './forms/Validate';
+import Validate from './Validate';
 
 /**
  * Обработка форм, проверка полей и отправка запроса на сервер
@@ -19,6 +19,7 @@ export default class BaseFetch {
     isWatch; ///< (boolean) если true, отслеживаем изменения в полях при вводе и проверяем на корректность
     isClear; ///< (boolean) если true, после отправки очищаем поля(устанавливаем исходные значения)
     isTest; ///< (boolean) если true, то будет включен режим отладки(например вывод в консоль значений перед отправкой)
+    disVerify; ///< (boolean) если true, отключаем проверку на правильное заполнение полей
 
     configRequire; ///< (object) объект с текстами и правилами для проверки ошибок на пустоту при заполненнии полей
     configEmail; ///< (object) объект с текстами и правилами для проверки email на корректность заполнения
@@ -28,10 +29,21 @@ export default class BaseFetch {
     dataFields; ///< (array) хранит список полей с параметрами необходимыми для проверки и отправки
     // dataStartFields; ///< (array) стартовые значения полей
 
-    constructor(
-        { idForm, fieldName, nameOrder, method, url, preloader, success, error, isWatch, isClear, isTest },
-        configForms = {}
-    ) {
+    constructor(params, configForms = {}) {
+        const {
+            idForm,
+            fieldName,
+            nameOrder,
+            method,
+            url,
+            preloader,
+            success,
+            error,
+            isWatch,
+            isClear,
+            isTest,
+            disVerify,
+        } = params;
         this.idForm = idForm;
         this.fieldName = fieldName ? fieldName : 'ffield';
         this.nameOrder = nameOrder ? nameOrder : '';
@@ -43,6 +55,7 @@ export default class BaseFetch {
         this.isWatch = !!isWatch;
         this.isClear = !!isClear;
         this.isTest = !!isTest;
+        this.disVerify = !!disVerify;
         this.default = [];
 
         this.configRequire = configForms.require
@@ -78,11 +91,11 @@ export default class BaseFetch {
      */
     #checked(check, checkEmpty, message, fieldContainer) {
         if (!check && checkEmpty) {
-            fieldContainer.classList.add('error');
+            if (!this.disVerify) fieldContainer.classList.add('error');
             fieldContainer.setAttribute('data-error', message);
             return false;
         } else {
-            fieldContainer.classList.remove('error');
+            if (!this.disVerify) fieldContainer.classList.remove('error');
             return true;
         }
     }
@@ -196,7 +209,8 @@ export default class BaseFetch {
         this.successHandle(results);
         if (this.isClear) {
             this.default.forEach((item) => {
-                switch (item.type) {
+                const fieldType = item.getAttribute('data-type');
+                switch (fieldType) {
                     case 'checkbox':
                     case 'radiobox':
                         document.getElementById(item.id).checked = item.value;
@@ -270,6 +284,11 @@ export default class BaseFetch {
             }
         }
 
+        if (this.nameOrder) formData['name-order'] = this.nameOrder;
+
+        formData['allow'] = true;
+        formData['url'] = window.location.href;
+
         if (this.isTest) {
             //- для отладки formData
             console.log(formData);
@@ -322,7 +341,9 @@ export default class BaseFetch {
                     break;
             }
         }
-        formData.append('name-order', this.nameOrder);
+
+        if (this.nameOrder) formData.append('name-order', this.nameOrder);
+        
         formData.append('allow', true);
         formData.append('url', window.location.href);
 
@@ -361,17 +382,17 @@ export default class BaseFetch {
      * запускает проверку полей и отправку запроса на сервер
      */
     start() {
+        const fields = document.getElementById(this.idForm).querySelectorAll(`.${this.fieldName}`);
         let allow = true;
         const fields = document.getElementById(this.idForm).querySelectorAll(`.${this.fieldName}`);
         this.dataFields = [];
-        
         fields.forEach((field) => {
             const fieldContainer = field.closest(`.field-container`);
             const fieldValue = field.value;
             const fieldName = field.name;
             const fieldType = field.getAttribute('data-type');
             const commonObj = { name: fieldName, type: fieldType, id: field.id };
-            if (field.getAttribute('data-checks')) {
+            if (field.getAttribute('data-checks') && !this.disVerify) {
                 if (!this.verify(field, fieldContainer)) allow = false;
             }
             switch (fieldType) {
@@ -425,7 +446,6 @@ export default class BaseFetch {
                 id: field.id,
             };
         });
-
         if (allow) {
             if (this.preloader) {
                 const preloader = document.getElementById(this.preloader);
