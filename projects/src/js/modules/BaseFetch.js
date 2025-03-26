@@ -382,7 +382,6 @@ export default class BaseFetch {
      * запускает проверку полей и отправку запроса на сервер
      */
     start() {
-        const fields = document.getElementById(this.idForm).querySelectorAll(`.${this.fieldName}`);
         let allow = true;
         const fields = document.getElementById(this.idForm).querySelectorAll(`.${this.fieldName}`);
         this.dataFields = [];
