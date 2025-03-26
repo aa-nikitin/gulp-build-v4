@@ -1,4 +1,4 @@
-import Validate from './Validate';
+import Validate from './forms/Validate';
 
 /**
  * Обработка форм, проверка полей и отправка запроса на сервер

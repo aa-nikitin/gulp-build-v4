@@ -1,0 +1,65 @@
+@keyframes movie-slider {
+    from {
+        transform: scale(1) translate(0px, 0px);
+    }
+    35% {
+        transform: scale(1.1) translate(-20px, 10px);
+    }
+    70% {
+        transform: scale(1.21) translate(30px, 15px);
+    }
+    to {
+        transform: scale(1) translate(0px, 0px);
+    }
+}
+
+@keyframes movie-banner {
+    from {
+        transform: scale(1) translate(0px, 0px);
+    }
+    35% {
+        transform: scale(1.2) translate(-50px, 30px);
+    }
+    70% {
+        transform: scale(1.1) translate(50px, 10px);
+    }
+    to {
+        transform: scale(1) translate(0px, 0px);
+    }
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+    80% {
+        transform: rotate(0deg);
+    }
+    85% {
+        transform: rotate(5deg);
+    }
+    95% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    1% {
+        transform: scale(0.5);
+    }
+    45% {
+        transform: scale(1.05);
+    }
+    80% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
