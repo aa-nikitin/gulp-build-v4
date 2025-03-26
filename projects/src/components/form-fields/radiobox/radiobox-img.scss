@@ -1,0 +1,113 @@
+// -- options --
+
+.radiobox-img {
+    display: block;
+    line-height: 1.5;
+
+    &:hover {
+        & .radiobox-img {
+            &__src {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__input {
+        display: none;
+    }
+
+    // для svg
+    // &__icon {
+    //     @include centered();
+    //     fill: transparent;
+    //     stroke: $cl-main;
+    //     opacity: 0;
+    //     width: $w-icon;
+    //     height: $h-icon;
+    //     transition-property: opacity;
+    //     transition-duration: 0.5s;
+    // }
+
+    // для css(круг)
+    &__icon {
+        @include centered();
+        display: block;
+        fill: transparent;
+        stroke: $cl-white;
+        opacity: 0;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+    }
+
+    &__src {
+        display: block;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+        opacity: 0.8;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            background-color: rgba($color: $cl-main, $alpha: 0.4);
+            opacity: 0;
+            transition-property: opacity;
+            transition-duration: 0.5s;
+        }
+    }
+    &__img {
+        display: block;
+    }
+
+    &__input:checked + &__src {
+        opacity: 1;
+        & .icon {
+            opacity: 1;
+        }
+        &:before {
+            opacity: 1;
+        }
+    }
+
+    &__label {
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+    }
+
+    &__text {
+        @include fs(18px, 1.5);
+        @include ind-p(20px, (l r), 2);
+        @include ind-p(10px, (t b), 2);
+        display: block;
+        text-align: center;
+        font-weight: 300;
+        & a {
+            color: rgba($color: $cl-main, $alpha: 0.6);
+            transition-property: color;
+            transition-duration: 0.5s;
+            &:hover {
+                color: rgba($color: $cl-main, $alpha: 1);
+            }
+        }
+    }
+
+    // оформление поля если не заполнено(error)
+    @extend .field-container--error-block;
+
+    @include xl() {
+    }
+    @include lg() {
+    }
+    @include md() {
+    }
+    @include sm() {
+    }
+    @include xs() {
+    }
+}

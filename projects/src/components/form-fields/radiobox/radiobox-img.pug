@@ -1,4 +1,4 @@
-mixin radiobox(i)
+mixin radiobox-img(i)
     - var id = i.id ? i.id : ''
     - var className = i.className ? `${i.className}` : 'radiobox'
     div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
@@ -14,13 +14,10 @@ mixin radiobox(i)
                 data-type = `radiobox`
                 data-caption = '' + ((i.showCaption && i.caption) ? i.caption : '')
             )
-            span(class=`${className}__box`)
-                span.icon(class=`${className}__icon`)
-                //- svg.icon(class=`radiobox__icon`)
-                //-     use(xlink:href="./assets/files/sprite.svg#checkbox")
+            span(class=`${className}__src`)
+                img(class=`${className}__img` src=`${files}/${i.image}` alt='')  
+                //- span.icon(class=`${className}__icon`)
+                svg.icon(class=`${className}__icon`)
+                    use(xlink:href="./assets/files/sprite.svg#checkbox")
             if (i.caption)
                 span(class=`${className}__text`) !{i.caption}
-
-
-include ./radiobox-img
-include ./radiobox-btn

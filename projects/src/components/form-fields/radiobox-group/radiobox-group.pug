@@ -11,10 +11,11 @@ mixin radiobox-group(i)
             value=''
             data-checks = `` + (i.checks ? i.checks : '')
             data-type = `radiobox-group`
+            data-caption = '' + (i.caption ? i.caption : '')
         )
         each itemList, keyList in i.list 
-            div(class = `${className}__item`)
-                +radiobox({
+            - 
+                params = {
                     id: `${id}-${keyList + 1}`,
                     name: `${id}`,
                     caption: `${itemList.name}`,
@@ -23,4 +24,16 @@ mixin radiobox-group(i)
                     fieldName: '',
                     className: `${classRadiobox}`,
                     showCaption: !!i.showCaption
-                })
+                }
+            case i.className
+                when 'radiobox'
+                    div(class = `${className}__item`)
+                        +radiobox(params)
+                when 'radiobox-img'
+                    -
+                        params.image = `${itemList.image}`
+                    div(class = `${className}__item`)
+                        +radiobox-img(params)
+                when 'radiobox-btn'
+                    div(class = `${className}__item`)
+                        +radiobox-btn(params)

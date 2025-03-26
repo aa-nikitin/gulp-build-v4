@@ -1,0 +1,47 @@
+// -- options --
+
+.radiobox-btn {
+    display: block;
+    line-height: 1.5;
+    text-align: center;
+
+    &__input {
+        display: none;
+    }
+
+    &__btn {
+        @include ind-p(25px, (l r));
+        @include ind-p(18px, (t b));
+        display: block;
+        border-radius: 5px;
+        transition-property: background-color, color;
+        transition-duration: 0.5s;
+        background-color: lighten($cl-main, 50%);
+    }
+
+    &__input:checked + &__btn {
+        background-color: $cl-main;
+        color: $cl-white;
+    }
+
+    &__label {
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        font-weight: 300;
+    }
+
+    // оформление поля если не заполнено(error)
+    @extend .field-container--error-block;
+
+    @include xl() {
+    }
+    @include lg() {
+    }
+    @include md() {
+    }
+    @include sm() {
+    }
+    @include xs() {
+    }
+}

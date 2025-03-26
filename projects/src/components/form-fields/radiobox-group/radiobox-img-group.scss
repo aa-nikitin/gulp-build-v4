@@ -1,0 +1,32 @@
+.radiobox-img-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    @include ind-m(10px, (l r), 2, '-');
+    &__item {
+        @include ind-p(10px, (l r), 2.5);
+        @include ind-m(10px, (b), 2.5);
+        width: 33.33%;
+    }
+
+    // оформление поля если не заполнено(error)
+    @extend .field-container--error-block;
+
+    @include xxxl() {
+    }
+    @include xxl() {
+    }
+    @include xl() {
+    }
+    @include lg() {
+    }
+    @include md() {
+        &__item {
+            width: 50%;
+        }
+    }
+    @include sm() {
+    }
+    @include xs() {
+    }
+}
