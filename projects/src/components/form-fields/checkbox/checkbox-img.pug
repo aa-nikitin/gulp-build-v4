@@ -1,17 +1,17 @@
-mixin radiobox-img(i)
+mixin checkbox-img(i)
     - var id = i.id ? i.id : ''
-    - var className = i.className ? `${i.className}` : 'radiobox'
-    div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
+    - var className = i.className ? `${i.className}` : 'checkbox'
+    div(class = `${className} field-container` + (i.checks ? ' error-watch' : '') + (i.dopClasses ? ` ${i.dopClasses}` : ''))&attributes(attributes)
         label(class=`${className}__label`)
             input(
                 id = `${id}`
                 class = `${className}__input ${i.fieldName}`
-                type = `radio` 
-                name = `${i.name}` 
+                type = `checkbox` 
+                name = `${i.name}`
                 checked = i.checked
                 value = '' + (i.value ? `${i.value}` : '' )
                 data-checks = `` + (i.checks ? i.checks : '')
-                data-type = `radiobox`
+                data-type = `checkbox`
                 data-caption = '' + ((i.showCaption && i.caption) ? i.caption : '')
             )
             span(class=`${className}__src`)

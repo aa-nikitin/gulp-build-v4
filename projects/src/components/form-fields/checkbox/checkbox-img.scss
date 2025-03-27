@@ -1,11 +1,11 @@
 // -- options --
 
-.radiobox-img {
+.checkbox-img {
     display: block;
     line-height: 1.5;
 
     &:hover {
-        & .radiobox-img {
+        & .checkbox-img {
             &__src {
                 opacity: 1;
             }
@@ -17,18 +17,6 @@
     }
 
     // для svg
-    // &__icon {
-    //     @include centered();
-    //     fill: transparent;
-    //     stroke: $cl-main;
-    //     opacity: 0;
-    //     width: $w-icon;
-    //     height: $h-icon;
-    //     transition-property: opacity;
-    //     transition-duration: 0.5s;
-    // }
-
-    // для css(круг)
     &__icon {
         @include centered();
         display: block;

@@ -78,35 +78,75 @@ mixin form-page(i)
                 name: 'brands',
                 fieldName: 'ffield',
                 showCaption: true,
+                className: 'checkbox',
+                caption: 'checkbox тест',
                 list: [
-                    {name: 'Фильтр 1'},
+                    {name: 'Фильтр 1', checked: true},
                     {name: 'Фильтр 2'},
                     {name: 'Фильтр 3', value: 'filter3'}
                 ]
             })
 
         div(class = `${i.cl}__field`)
-            +radiobox-group({
-                id: `${idForm}-brands2`,
-                name: 'brands2',
+            +checkbox-group({
+                id: `${idForm}-checkbox-btn-1`,
+                name: 'checkbox-btn-1',
                 fieldName: 'ffield',
                 showCaption: true,
+                className: 'checkbox-btn',
+                caption: 'checkbox-btn тест',
                 list: [
-                    {name: 'Фильтр2 1', checked: true},
+                    {name: 'Фильтр2 1'},
                     {name: 'Фильтр2 2'},
                     {name: 'Фильтр2 3', value: 'filter3'}
                 ]
             })
 
         div(class = `${i.cl}__field`)
-            +radiobox-group({
-                id: `${idForm}-radiobox-1`,
-                name: 'radiobox-1',
+            +checkbox-group({
+                id: `${idForm}-checkbox-img-1`,
+                name: 'checkbox-img-1',
+                fieldName: 'ffield',
+                showCaption: true,
+                className: 'checkbox-img',
+                caption: 'checkbox-img тест',
+                list: [
+                    {image: 'no-photo.jpg', name: 'radiobox-img 1'},
+                    {image: 'no-photo.jpg', name: 'radiobox-img 2'},
+                    {image: 'no-photo.jpg', name: 'radiobox-img 3'},
+                    {image: 'no-photo.jpg', name: 'radiobox-img 4'},
+                    {image: 'no-photo.jpg', name: 'radiobox-img 5'}
+                ]
+            })
+
+        div(class = `${i.cl}__field`)
+            +checkbox-group({
+                id: `${idForm}-checkbox-2`,
+                name: 'checkbox-2',
                 fieldName: 'ffield',
                 showCaption: true,
                 checks: 'require',
-                className: 'radiobox',
+                className: 'checkbox',
                 caption: 'radiobox тест',
+                typeGroup: 'radiobox',
+                necessary: true,
+                dopClasses: 'checkbox--radio',
+                list: [
+                    {name: 'Да', checked: true},
+                    {name: 'Нет'},
+                    {name: 'Нужна консультация'}
+                ]
+            })
+
+        div(class = `${i.cl}__field`)
+            +checkbox-group({
+                id: `${idForm}-checkbox-btn-2`,
+                name: 'checkbox-btn-2',
+                fieldName: 'ffield',
+                showCaption: true,
+                className: 'checkbox-btn',
+                caption: 'radiobox-btn тест',
+                typeGroup: 'radiobox',
                 list: [
                     {name: 'Да'},
                     {name: 'Нет'},
@@ -115,35 +155,21 @@ mixin form-page(i)
             })
 
         div(class = `${i.cl}__field`)
-            +radiobox-group({
-                id: `${idForm}-radiobox-btn-1`,
-                name: 'radiobox-btn-1',
+            +checkbox-group({
+                id: `${idForm}-checkbox-img-2`,
+                name: 'checkbox-img-2',
                 fieldName: 'ffield',
                 showCaption: true,
                 checks: 'require',
-                className: 'radiobox-btn',
-                caption: 'radiobox-btn тест',
+                className: 'checkbox-img',
+                caption: 'radiobox-img тест',
+                typeGroup: 'radiobox',
                 list: [
-                    {name: 'Да'},
-                    {name: 'Нет'},
-                    {name: 'Нужна консультация'}
+                    {image: 'no-photo.jpg', name: 'radiobox-img 1', checked: true},
+                    {image: 'no-photo.jpg', name: 'radiobox-img 2'},
+                    {image: 'no-photo.jpg', name: 'radiobox-img 3'},
+                    {image: 'no-photo.jpg', name: 'radiobox-img 4'},
+                    {image: 'no-photo.jpg', name: 'radiobox-img 5'}
                 ]
             })
-
-        +radiobox-group({
-            id: `${idForm}-radiobox-img-1`,
-            name: 'radiobox-img-1',
-            fieldName: 'ffield',
-            showCaption: true,
-            checks: 'require',
-            className: 'radiobox-img',
-            caption: 'radiobox-img тест',
-            list: [
-                {image: 'no-photo.jpg', name: 'radiobox-img 1'},
-                {image: 'no-photo.jpg', name: 'radiobox-img 2'},
-                {image: 'no-photo.jpg', name: 'radiobox-img 3'},
-                {image: 'no-photo.jpg', name: 'radiobox-img 4'},
-                {image: 'no-photo.jpg', name: 'radiobox-img 5'}
-            ]
-        })
         a.button(id=`${idForm}-send`) Отправить

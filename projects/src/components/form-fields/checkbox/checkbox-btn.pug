@@ -1,4 +1,4 @@
-mixin checkbox(i)
+mixin checkbox-btn(i)
     - var id = i.id ? i.id : ''
     - var className = i.className ? `${i.className}` : 'checkbox'
     div(class = `${className} field-container` + (i.checks ? ' error-watch' : '') + (i.dopClasses ? ` ${i.dopClasses}` : ''))&attributes(attributes)
@@ -14,11 +14,10 @@ mixin checkbox(i)
                 data-type = `checkbox`
                 data-caption = '' + ((i.showCaption && i.caption) ? i.caption : '')
             )
-            span(class=`${className}__box`)
-                svg.icon(class=`${className}__icon`)
-                    use(xlink:href="./assets/files/sprite.svg#checkbox")
-            if (i.caption)
+            span(class=`${className}__btn`)
                 span(class=`${className}__text`) !{i.caption}
-                
-include ./checkbox-img
-include ./checkbox-btn
+            //- span(class=`${className}__box`)
+            //-     svg.icon(class=`${className}__icon`)
+            //-         use(xlink:href="./assets/files/sprite.svg#checkbox")
+            //- if (i.caption)
+            //-     span(class=`${className}__text`) !{i.caption}

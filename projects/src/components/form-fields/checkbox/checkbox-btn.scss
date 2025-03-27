@@ -1,9 +1,8 @@
 // -- options --
 
-.radiobox-btn {
+.checkbox-btn {
     display: block;
     line-height: 1.5;
-    text-align: center;
 
     &__input {
         display: none;
@@ -31,6 +30,7 @@
         font-weight: 300;
     }
 
+    
     // оформление поля если не заполнено(error)
     @extend .field-container--error-block;
 

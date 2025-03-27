@@ -2,7 +2,10 @@ mixin checkbox-group(i)
     - var id = i.id ? i.id : ''
     - var className = i.className ? `${i.className}-group` : 'checkbox-group'
     - var classCheckbox = i.className ? `${i.className}` : 'checkbox'
-    div(class = `${className} field-container` + (i.checks ? ' error-watch' : ''))&attributes(attributes)
+    - var dopClasses = i.dopClasses ? `${i.dopClasses}` : ''
+    - var typeGroup = i.typeGroup ? i.typeGroup : 'checkbox';
+    - var necessary = i.necessary ? '1' : '';
+    div(class = `${className} field-container field-group-container` + (i.checks ? ' error-watch' : '') data-type-group=`${typeGroup}` data-necessary=`${necessary}`)&attributes(attributes)
         input(
             id=`${id}`
             class=`${className}__edit ${i.fieldName}`
@@ -11,10 +14,11 @@ mixin checkbox-group(i)
             value=''
             data-checks = `` + (i.checks ? i.checks : '')
             data-type = `checkbox-group`
+            data-caption = '' + (i.caption ? i.caption : '')
         )
         each itemList, keyList in i.list 
-            div(class = `${className}__item`)
-                +checkbox({
+            - 
+                params = {
                     id: `${id}-${keyList + 1}`,
                     name: `${id}`,
                     caption: `${itemList.name}`,
@@ -22,5 +26,18 @@ mixin checkbox-group(i)
                     value: '' + (itemList.value ? itemList.value : itemList.name),
                     fieldName: '',
                     className: `${classCheckbox}`,
+                    dopClasses: `${dopClasses}`,
                     showCaption: !!i.showCaption
-                })
+                }
+            case i.className
+                when 'checkbox'
+                    div(class = `${className}__item`)
+                        +checkbox(params)
+                when 'checkbox-img'
+                    -
+                        params.image = `${itemList.image}`
+                    div(class = `${className}__item`)
+                        +checkbox-img(params)
+                when 'checkbox-btn'
+                    div(class = `${className}__item`)
+                        +checkbox-btn(params)

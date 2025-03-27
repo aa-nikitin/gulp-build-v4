@@ -7,6 +7,24 @@
     &__input {
         display: none;
     }
+    &--radio {
+        & .checkbox {
+            &__box {
+                border-radius: 100%;
+            }
+            &__icon {
+                @include centered();
+                display: block;
+                opacity: 0;
+                width: 8px;
+                height: 8px;
+                transition-property: opacity;
+                transition-duration: 0.5s;
+                background-color: $cl-main;
+                border-radius: 100%;
+            }
+        }
+    }
 
     &__icon {
         @include centered();
@@ -53,7 +71,6 @@
         }
     }
 
-    
     // оформление поля если не заполнено(error)
     @extend .field-container--error-block;
 
