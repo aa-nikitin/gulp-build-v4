@@ -15,4 +15,10 @@ block content
 
     section.sections__standart.sections__standart--m
         .container 
+            .content-title.content-title--h2 Галлерея
             +cat-list('gallery', gallery)(class="gallery--list")
+
+    section.sections__standart.sections__standart--m
+        .container 
+            .content-title.content-title--h2 Галлерея слайдер
+            +gallery-slider('gallery', gallery, 'gallery-slider')

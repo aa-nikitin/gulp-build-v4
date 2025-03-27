@@ -1,0 +1,41 @@
+-
+    var billboard = { className: 'billboard', classItem: 'billboard-item', items: [
+        {image: '', name: 'Товар какой то очень очень очень  очень дляинный заголовок 1'},
+        {image: '', name: 'Товар 2'},
+        {image: '', name: 'Товар 3'},
+        {image: '', name: 'Товар 4'},
+        {image: '', name: 'Товар 5'},
+        {image: '', name: 'Товар 6'},
+        {image: '', name: 'Товар 7'},
+        {image: '', name: 'Товар 8'},
+        {image: '', name: 'Товар 9'}
+    ]}
+
+mixin billboard(cl, i, params, key) 
+    -
+        var img = `${files}/${i.image ? i.image : image}`
+        var link = `${i.link ? i.link : '#'}`
+    div(class = `${cl}`)
+        div(class = `${cl}__top`)
+            a(class = `${cl}__image` href = `${img}` data-fancybox = `${params.fancybox ? params.fancybox : cl}` data-caption = `${i.name}`)
+                img(class = `${cl}__img` src = `${img}`, alt = `${i.name}`)
+            div(class = `${cl}__name`) !{i.name}
+
+
+mixin billboard-slider(name, obj, id ) 
+    - var cl = obj.className
+    div(class=`${cl} ${id} swiper`)
+        div(class=`${cl}__slider swiper-wrapper`)
+            +cat-list(name, obj, {commonClassItem: 'swiper-slide', hideMainDiv: true}, {fancybox: `${id}`})
+        div(class=`${cl}__pagination`)
+            div(class=`${cl}__pagination ${id}-pagination`)
+        div(class=`${cl}__navigation`)
+            div(class=`${cl}__navigation-prev slider-btn slider-btn--prev ${id}-prev`)
+                svg(class=`icon slider-btn__icon`)
+                    use(xlink:href="./assets/files/sprite.svg#arrow-slider")
+            div(class=`${cl}__navigation-next slider-btn slider-btn--next ${id}-next`)
+                svg(class=`icon slider-btn__icon`)
+                    use(xlink:href="./assets/files/sprite.svg#arrow-slider")
+        
+
+

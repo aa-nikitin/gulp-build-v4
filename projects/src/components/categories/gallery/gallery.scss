@@ -1,5 +1,4 @@
 .gallery {
-    overflow-x: hidden;
     &--list {
         @include ind-m(10px, (l r), 2, '-');
         display: flex;

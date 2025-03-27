@@ -2,7 +2,7 @@ import resp from '../../../js/configs/responsive.js';
 const { sm, lg } = resp;
 
 document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('#gallery-slider', {
+    new Swiper('.gallery-slider', {
         loop: true,
         slidesPerView: 2,
         slidesPerGroup: 2,
@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
         watchOverflow: true,
         // centeredSlides: true,
         pagination: {
-            el: '#gallery-slider-pagination',
+            el: '.gallery-slider-pagination',
             clickable: true,
         },
         navigation: {
-            nextEl: '#gallery-slider-next',
-            prevEl: '#gallery-slider-prev',
+            nextEl: '.gallery-slider-next',
+            prevEl: '.gallery-slider-prev',
         },
         breakpoints: {
             // when window width is >= 420px

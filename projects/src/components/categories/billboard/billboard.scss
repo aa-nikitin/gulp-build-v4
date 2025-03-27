@@ -1,5 +1,4 @@
-.main-slider {
-    overflow-x: hidden;
+.billboard {
     &--list {
         @include ind-m(10px, (l r), 2, '-');
         display: flex;
@@ -28,7 +27,7 @@
     }
 }
 
-.main-slider-item {
+.billboard-item {
     display: flex;
     flex-direction: column;
     width: 100%;

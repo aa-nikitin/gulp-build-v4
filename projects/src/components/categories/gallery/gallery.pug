@@ -1,4 +1,5 @@
 -
+    
     var gallery = { className: 'gallery', classItem: 'gallery-item', items: [
         {image: '', name: 'img-1'},
         {image: '', name: 'img-2'},
@@ -17,5 +18,20 @@ mixin gallery(cl, i, params, key)
     div(class = `${cl}`)
         a(class = `${cl}__image` href = `${img}` data-fancybox = `${fancybox}` data-caption = `${i.name}`)
             img(class = `${cl}__img` src = `${img}`, alt = `${i.name}`)
+
+mixin gallery-slider(name, obj, id ) 
+    - var cl = obj.className
+    div(class=`${cl} ${id} swiper`)
+        div(class=`${cl}__slider swiper-wrapper`)
+            +cat-list(name, obj, {commonClassItem: 'swiper-slide', hideMainDiv: true}, {fancybox: `${id}`})
+        div(class=`${cl}__pagination`)
+            div(class=`${cl}__pagination ${id}-pagination`)
+        div(class=`${cl}__navigation`)
+            div(class=`${cl}__navigation-prev slider-btn slider-btn--prev ${id}-prev`)
+                svg(class=`icon slider-btn__icon`)
+                    use(xlink:href="./assets/files/sprite.svg#arrow-slider")
+            div(class=`${cl}__navigation-next slider-btn slider-btn--next ${id}-next`)
+                svg(class=`icon slider-btn__icon`)
+                    use(xlink:href="./assets/files/sprite.svg#arrow-slider")
 
 

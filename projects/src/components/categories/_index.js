@@ -1,3 +1,3 @@
 import './gallery/gallery';
-import './main-slider/main-slider';
+import './billboard/billboard';
 import './accordion/accordion';

@@ -9,22 +9,6 @@ block content
     section.sections__standart.sections__standart--m
         .container 
             .content-title.content-title--h1 Текстовая
-
-    section.sections__standart.sections__standart--m
-        .container 
-            .content-title.content-title--h2 Галлерея слайдер
-            .gallery(id="gallery-slider")
-                .gallery__slider.swiper-wrapper
-                    +cat-list('gallery', gallery, {commonClassItem: 'swiper-slide', hideMainDiv: true}, {fancybox: 'gallery-slider'})
-                .gallery__pagination
-                    .slider-pagination(id="gallery-slider-pagination")
-                .gallery__navigation
-                    .slider-btn.slider-btn--prev.gallery-slider__navigation-prev(id="gallery-slider-prev")
-                        svg.icon.slider-btn__icon
-                            use(xlink:href="./assets/files/sprite.svg#arrow-slider")
-                    .slider-btn.slider-btn--next.gallery-slider__navigation-next(id="gallery-slider-next")
-                        svg.icon.slider-btn__icon
-                            use(xlink:href="./assets/files/sprite.svg#arrow-slider")
                             
     section.sections__standart.sections__standart--m
         .container 
