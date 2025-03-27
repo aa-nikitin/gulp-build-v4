@@ -18,6 +18,6 @@ mixin checkbox-img(i)
                 img(class=`${className}__img` src=`${files}/${i.image}` alt='')  
                 //- span.icon(class=`${className}__icon`)
                 svg.icon(class=`${className}__icon`)
-                    use(xlink:href="./assets/files/sprite.svg#checkbox")
+                    use(xlink:href="/assets/files/sprite.svg#checkbox")
             if (i.caption)
                 span(class=`${className}__text`) !{i.caption}

@@ -16,7 +16,7 @@ mixin gallery(cl, i, params, key)
         var img = `${files}/${i.image ? i.image : image}`
         var fancybox = `${params.fancybox ? params.fancybox : cl}` // уникальное значение fancybox для галлереи, если не задан берется из имени класса
     div(class = `${cl}`)
-        a(class = `${cl}__image` href = `${img}` data-fancybox = `${fancybox}` data-caption = `${i.name}`)
+        a(class = `${cl}__src` href = `${img}` data-fancybox = `${fancybox}` data-caption = `${i.name}`)
             img(class = `${cl}__img` src = `${img}`, alt = `${i.name}`)
 
 mixin gallery-slider(name, obj, id ) 
@@ -29,9 +29,9 @@ mixin gallery-slider(name, obj, id )
         div(class=`${cl}__navigation`)
             div(class=`${cl}__navigation-prev slider-btn slider-btn--prev ${id}-prev`)
                 svg(class=`icon slider-btn__icon`)
-                    use(xlink:href="./assets/files/sprite.svg#arrow-slider")
+                    use(xlink:href="/assets/files/sprite.svg#arrow-slider")
             div(class=`${cl}__navigation-next slider-btn slider-btn--next ${id}-next`)
                 svg(class=`icon slider-btn__icon`)
-                    use(xlink:href="./assets/files/sprite.svg#arrow-slider")
+                    use(xlink:href="/assets/files/sprite.svg#arrow-slider")
 
 
