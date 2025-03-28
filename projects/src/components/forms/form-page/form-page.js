@@ -1,5 +1,5 @@
 import BaseFetch from '../../../js/modules/BaseFetch.js';
-import configForms, {urlFormRequest} from '../../../js/configs/forms.js';
+import configForms, { urlFormRequest } from '../../../js/configs/forms.js';
 
 const formName = 'form-page';
 const phone = document.getElementById(`${formName}-phone`);

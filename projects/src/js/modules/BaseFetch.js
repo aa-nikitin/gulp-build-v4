@@ -137,6 +137,18 @@ export default class BaseFetch {
     }
 
     /**
+     * очищает value полей
+     */
+    clearFields() {
+        const elemForm = document.getElementById(this.idForm);
+        if (!elemForm) return;
+        const fields = elemForm.querySelectorAll(`.ffield`);
+        fields.forEach((field) => {
+            field.value = '';
+        });
+    }
+
+    /**
      * основной метод верефикации полей
      * @param field (object) - элемент поля
      * @param fieldContainer (object) - корневой элемент поля
@@ -206,22 +218,10 @@ export default class BaseFetch {
         }
         const results = await response.json();
 
-        this.successHandle(results);
         if (this.isClear) {
-            this.default.forEach((item) => {
-                const fieldType = item.getAttribute('data-type');
-                switch (fieldType) {
-                    case 'checkbox':
-                    case 'radiobox':
-                        document.getElementById(item.id).checked = item.value;
-                        break;
-
-                    default:
-                        document.getElementById(item.id).value = item.value;
-                        break;
-                }
-            });
+            this.clearFields();
         }
+        this.successHandle(results);
     }
 
     /**
@@ -343,7 +343,7 @@ export default class BaseFetch {
         }
 
         if (this.nameOrder) formData.append('name-order', this.nameOrder);
-        
+
         formData.append('allow', true);
         formData.append('url', window.location.href);
 
