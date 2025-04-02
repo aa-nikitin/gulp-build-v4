@@ -2,10 +2,12 @@
     var config = {
         modx:                   false, //- замена номеров и адресов на чанки и переменные MODX
         yandexMapApi:           false, //- подключение яндекс карты API
-        outsideLibsCss:         true, //- подключение сторонних библиотек из CSS файлов, должны находится в папке libs, в конфиге сборки(config.js) параметр isCssLibs должен стоять в true
-        outsideLibsJs:          true, //- подключение сторонних библиотек из JS файлов, должны находится в папке libs, в конфиге сборки(config.js) параметр isJsLibs должен стоять в true  
+        outsideLibsCss:         true,  //- подключение сторонних библиотек из CSS файлов, должны находится в папке libs, в конфиге сборки(config.js) параметр isCssLibs должен стоять в true
+        outsideLibsJs:          true,  //- подключение сторонних библиотек из JS файлов, должны находится в папке libs, в конфиге сборки(config.js) параметр isJsLibs должен стоять в true  
         hbsLibs:                false, //- подключение hbs файлов, параметр isHbs должен стоять в true 
         spriteStyles:           false, //- подключение стилей для спрайтов
+        favicon:                true,  //- подключение фавиконки в head, необходимо поместить папку icons(после выполнения gulp favicon) 
+                                       //- в ./assets/files/ (что бы получилось ./assets/files/icons/)
     }
     
     var files = '/assets/files';

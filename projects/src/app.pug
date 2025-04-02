@@ -24,6 +24,13 @@ html(lang="ru")
         meta(content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport")
         meta(content="ie=edge" http-equiv="x-ua-compatible")
 
+        
+        if (config.favicon) 
+            link(rel="icon" type="image/png" href="./assets/files/icons/favicon-96x96.png" sizes="96x96")
+            link(rel="icon" type="image/svg+xml" href="./assets/files/icons/favicon.svg")
+            link(rel="shortcut icon" href="./assets/files/icons/favicon.ico")
+            link(rel="apple-touch-icon" sizes="180x180" href="./assets/files/icons/apple-touch-icon.png")
+
         //- Поключение стилей внешних библиотек
         if (config.outsideLibsCss) 
             link(rel="stylesheet" href="/assets/css/libs.min.css")
