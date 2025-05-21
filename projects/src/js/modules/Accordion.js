@@ -33,7 +33,9 @@ export default class Accordion {
      * запускается в конструкторе, вызывает необходимые методы для формирования Аккардиона
      */
     #start() {
-        this.#create();
+        setTimeout(() => {
+            this.#create();
+        }, 200);
     }
 
     /**
