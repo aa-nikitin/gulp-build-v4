@@ -47,7 +47,7 @@ export default class BaseFetch {
         this.idForm = idForm;
         this.fieldName = fieldName ? fieldName : 'ffield';
         this.nameOrder = nameOrder ? nameOrder : '';
-        this.method = method ? method : 'GET';
+        this.method = method;
         this.url = url ? url : '/';
         this.preloader = preloader ? preloader : '';
         this.success = success ? success : undefined;
@@ -445,34 +445,39 @@ export default class BaseFetch {
                 id: field.id,
             };
         });
-        if (allow) {
-            if (this.preloader) {
-                const preloader = document.getElementById(this.preloader);
-                preloader.classList.add('active');
-            }
-            switch (this.method) {
-                case 'get':
-                    this.getSend();
-                    break;
-                case 'post':
-                    this.postSend();
-                    break;
-                case 'put':
-                    this.putSend();
-                    break;
-                case 'delete':
-                    this.deleteSend();
-                    break;
+        
+        if (this.method) {
+            if (allow) {
+                if (this.preloader) {
+                    const preloader = document.getElementById(this.preloader);
+                    preloader.classList.add('active');
+                }
+                switch (this.method) {
+                    case 'get':
+                        this.getSend();
+                        break;
+                    case 'post':
+                        this.postSend();
+                        break;
+                    case 'put':
+                        this.putSend();
+                        break;
+                    case 'delete':
+                        this.deleteSend();
+                        break;
 
-                default:
-                    console.error('Выбран не существующий метот(параметр method) доступны: (POST, GET, PUT, DELETE)');
-                    break;
+                    default:
+                        console.error(
+                            'Выбран не существующий метот(параметр method) доступны: (POST, GET, PUT, DELETE)'
+                        );
+                        break;
+                }
+            } else {
+                if (this.error)
+                    setTimeout(() => {
+                        this.error('Неккорректно заполнены поля');
+                    }, 100);
             }
-        } else {
-            if (this.error)
-                setTimeout(() => {
-                    this.error('Неккорректно заполнены поля');
-                }, 100);
-        }
+        } else return allow;
     }
 }
